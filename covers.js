@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-20"};
 const COVERS = [
   {
+    "youtubeId": "elv_X95JL2s",
+    "rawTitle": "「Number One」Epic Orchestral ver - BLEACH Ichigo Theme | PopPunk no Jutsu",
+    "title": "Number One",
+    "anime": "BLEACH Ichigo Theme",
+    "series": "BLEACH",
+    "style": "Orchestral",
+    "publishedAt": "2026-10-20T21:00:31+00:00"
+  },
+  {
     "youtubeId": "XhU1Cm2LEno",
     "rawTitle": "「Kan Peki no Peki」Epic Orchestral ver - Dragon Ball Super: Beerus ED 1 | PopPunk no Jutsu",
     "title": "Kan Peki no Peki",
