@@ -1,0 +1,73 @@
+name: Update channel and publish website
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+concurrency:
+  group: channel-website
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Test the updater
+        run: python3 -m unittest -v test_sync_youtube.py
+      - name: Check YouTube for new uploads
+        id: youtube
+        continue-on-error: true
+        run: python3 sync_youtube.py
+      - name: Keep the saved catalog if YouTube is temporarily unavailable
+        if: steps.youtube.outcome == 'failure'
+        run: |
+          echo "::warning::YouTube could not be checked. The saved catalog is preserved; the next hourly run will retry."
+          python3 sync_youtube.py --render-only
+      - name: Save catalog changes
+        run: |
+          git add catalog.json covers.js
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Sync YouTube uploads"
+            git push
+          fi
+      - name: Prepare website files
+        run: |
+          mkdir -p _site
+          cp index.html styles.css script.js covers.js .nojekyll _site/
+          cp -R assets _site/assets
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Record sync result
+        run: |
+          echo "YouTube feed check: ${{ steps.youtube.outcome }}" >> "$GITHUB_STEP_SUMMARY"
+          python3 -c "import json; print('Catalog: ' + str(len(json.load(open('catalog.json'))['videos'])) + ' uploads')" >> "$GITHUB_STEP_SUMMARY"
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
