@@ -25,7 +25,7 @@ jobs:
         with:
           ref: main
       - name: Test the updater
-        run: python3 -m unittest -v test_sync_youtube.py
+        run: python3 -m unittest -v test_sync_youtube.py test_sync_playlists.py
       - name: Check YouTube for new uploads
         id: youtube
         continue-on-error: true
@@ -35,13 +35,26 @@ jobs:
         run: |
           echo "::warning::YouTube could not be checked. The saved catalog is preserved; the next hourly run will retry."
           python3 sync_youtube.py --render-only
+      - name: Check YouTube for new playlists
+        id: playlists
+        continue-on-error: true
+        timeout-minutes: 4
+        run: |
+          python3 -m venv .playlist-runtime
+          .playlist-runtime/bin/python -m pip install --disable-pip-version-check yt-dlp==2026.8.19
+          .playlist-runtime/bin/python sync_playlists.py
+      - name: Keep saved playlists if YouTube is temporarily unavailable
+        if: steps.playlists.outcome == 'failure'
+        run: |
+          echo "::warning::YouTube playlists could not be checked. Saved playlists are preserved; the next hourly run will retry."
+          python3 sync_playlists.py --render-only
       - name: Save catalog changes
         run: |
-          git add catalog.json covers.js
+          git add catalog.json covers.js playlists.json index.html
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "Sync YouTube uploads"
+            git commit -m "Sync YouTube uploads and playlists"
             git push
           fi
       - name: Prepare website files
@@ -55,7 +68,9 @@ jobs:
       - name: Record sync result
         run: |
           echo "YouTube feed check: ${{ steps.youtube.outcome }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "YouTube playlist check: ${{ steps.playlists.outcome }}" >> "$GITHUB_STEP_SUMMARY"
           python3 -c "import json; print('Catalog: ' + str(len(json.load(open('catalog.json'))['videos'])) + ' uploads')" >> "$GITHUB_STEP_SUMMARY"
+          python3 -c "import json; print('Playlists: ' + str(len(json.load(open('playlists.json'))['playlists'])))" >> "$GITHUB_STEP_SUMMARY"
 
   deploy:
     needs: update
