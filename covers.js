@@ -21,7 +21,7 @@ const COVERS = [
   },
   {
     "youtubeId": "N1TwH7Nk8RE",
-    "rawTitle": "「Number One」Acoustic English Ver - BLEACH Ichigo Theme | by PopPunk no Jutsu",
+    "rawTitle": "「Number One」Acoustic English Ver - BLEACH Ichigo Theme | PopPunk no Jutsu",
     "title": "Number One",
     "anime": "BLEACH Ichigo Theme",
     "series": "BLEACH",
