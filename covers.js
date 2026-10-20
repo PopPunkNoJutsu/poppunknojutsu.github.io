@@ -7,7 +7,8 @@ const COVERS = [
     "title": "Kan Peki no Peki",
     "anime": "Dragon Ball Super: Beerus ED 1",
     "series": "DRAGON BALL",
-    "style": "Orchestral"
+    "style": "Orchestral",
+    "publishedAt": "2026-10-19T21:00:35+00:00"
   },
   {
     "youtubeId": "N1TwH7Nk8RE",
@@ -15,7 +16,8 @@ const COVERS = [
     "title": "Number One",
     "anime": "BLEACH Ichigo Theme",
     "series": "BLEACH",
-    "style": "Acoustic"
+    "style": "Acoustic",
+    "publishedAt": "2026-10-19T16:15:17+00:00"
   },
   {
     "youtubeId": "5K4lHvCIYFk",
@@ -23,7 +25,8 @@ const COVERS = [
     "title": "The Power to Resist",
     "anime": "Dragon Ball Super: Beerus EP 2 OST",
     "series": "DRAGON BALL",
-    "style": "Orchestral"
+    "style": "Orchestral",
+    "publishedAt": "2026-10-18T18:00:12+00:00"
   },
   {
     "youtubeId": "mjrujO4Af8Q",
@@ -31,7 +34,8 @@ const COVERS = [
     "title": "Goku’s Image Training Theme",
     "anime": "Dragon Ball Super: Beerus EP 1",
     "series": "DRAGON BALL",
-    "style": "Orchestral"
+    "style": "Orchestral",
+    "publishedAt": "2026-10-18T10:15:20+00:00"
   },
   {
     "youtubeId": "rbw2XAa5h-w",
@@ -39,7 +43,8 @@ const COVERS = [
     "title": "Hero ~Song of Hope",
     "anime": "Dragon Ball Z: Battle of Gods",
     "series": "DRAGON BALL",
-    "style": "Orchestral"
+    "style": "Orchestral",
+    "publishedAt": "2026-10-17T17:00:32+00:00"
   },
   {
     "youtubeId": "ZRSMHHV9gd0",
@@ -47,7 +52,8 @@ const COVERS = [
     "title": "Spin and Burst",
     "anime": "Naruto the Movie OST",
     "series": "NARUTO",
-    "style": "Orchestral"
+    "style": "Orchestral",
+    "publishedAt": "2026-10-15T21:00:37+00:00"
   },
   {
     "youtubeId": "Tg6kL1vZ1mA",
@@ -55,7 +61,8 @@ const COVERS = [
     "title": "ONOGAMI",
     "anime": "Dragon Ball Super: Beerus OP 1",
     "series": "DRAGON BALL",
-    "style": "Orchestral"
+    "style": "Orchestral",
+    "publishedAt": "2026-10-14T21:00:33+00:00"
   },
   {
     "youtubeId": "jXOFo7QsNq0",
@@ -63,7 +70,8 @@ const COVERS = [
     "title": "Kan Peki no Peki",
     "anime": "Dragon Ball Super: Beerus ED 1",
     "series": "DRAGON BALL",
-    "style": "English covers"
+    "style": "English covers",
+    "publishedAt": "2026-10-13T21:00:15+00:00"
   },
   {
     "youtubeId": "qBCZv6YjbcI",
@@ -71,7 +79,8 @@ const COVERS = [
     "title": "ONOGAMI",
     "anime": "Dragon Ball Super: Beerus OP",
     "series": "DRAGON BALL",
-    "style": "English covers"
+    "style": "English covers",
+    "publishedAt": "2026-10-12T21:00:28+00:00"
   },
   {
     "youtubeId": "dHwEjkyflrQ",
@@ -79,7 +88,8 @@ const COVERS = [
     "title": "ONOGAMI (TV Size)",
     "anime": "Dragon Ball Super: Beerus OP 1",
     "series": "DRAGON BALL",
-    "style": "English covers"
+    "style": "English covers",
+    "publishedAt": "2026-10-11T18:45:36+00:00"
   },
   {
     "youtubeId": "-WtmDrOPPfE",
@@ -87,7 +97,8 @@ const COVERS = [
     "title": "Yellow Brick Road",
     "anime": "Black Clover 2nd Season ED 1",
     "series": "BLACK CLOVER",
-    "style": "English covers"
+    "style": "English covers",
+    "publishedAt": "2026-10-10T15:00:07+00:00"
   },
   {
     "youtubeId": "g_XGlmvk1Zo",
@@ -95,7 +106,8 @@ const COVERS = [
     "title": "Ultimate Battle | “Ka Ka Kachi Daze”",
     "anime": "Dragon Ball Super OST",
     "series": "DRAGON BALL",
-    "style": "English covers"
+    "style": "English covers",
+    "publishedAt": "2026-10-09T21:00:15+00:00"
   },
   {
     "youtubeId": "2TWsHSvXlWA",
@@ -103,7 +115,8 @@ const COVERS = [
     "title": "Chu-Bura",
     "anime": "BLEACH OP 8",
     "series": "BLEACH",
-    "style": "English covers"
+    "style": "English covers",
+    "publishedAt": "2026-10-08T21:00:20+00:00"
   },
   {
     "youtubeId": "NIcz-A_8B6Y",
@@ -111,7 +124,8 @@ const COVERS = [
     "title": "Genkai Toppa × Survivor | Limit Break x Survivor",
     "anime": "Dragon Ball Super OP 2",
     "series": "DRAGON BALL",
-    "style": "English covers"
+    "style": "English covers",
+    "publishedAt": "2026-10-07T21:00:07+00:00"
   },
   {
     "youtubeId": "FCA2-x6g9bE",
@@ -119,7 +133,8 @@ const COVERS = [
     "title": "Seishun Kyōsōkyoku | Rhapsody of Youth",
     "anime": "Naruto OP 5",
     "series": "NARUTO",
-    "style": "English covers"
+    "style": "English covers",
+    "publishedAt": "2026-10-06T21:00:16+00:00"
   },
   {
     "youtubeId": "T8dScj9e7Dw",
