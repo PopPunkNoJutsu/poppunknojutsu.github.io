@@ -21,7 +21,7 @@ const COVERS = [
   },
   {
     "youtubeId": "5K4lHvCIYFk",
-    "rawTitle": "「The Power to Resist」Epic ver - Dragon Ball Super: Beerus EP 2 OST | PopPunk no Jutsu",
+    "rawTitle": "「The Power to Resist」Epic Orchestral ver - Dragon Ball Super: Beerus EP 2 OST | PopPunk no Jutsu",
     "title": "The Power to Resist",
     "anime": "Dragon Ball Super: Beerus EP 2 OST",
     "series": "DRAGON BALL",
