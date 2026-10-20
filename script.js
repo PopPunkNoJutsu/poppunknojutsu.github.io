@@ -4,8 +4,9 @@ const searchInput = document.querySelector("#searchInput");
 const emptyState = document.querySelector("#emptyState");
 const showMore = document.querySelector("#showMore");
 let activeSeries = "ALL", activeStyle = "All styles", query = "", visibleLimit = 9;
-const seriesOptions = ["ALL", "BLEACH", "NARUTO", "DRAGON BALL", "BLACK CLOVER", "OTHER"];
-const styleOptions = ["All styles", "English covers", "Acoustic", "Orchestral"];
+const seriesOrder = ["BLEACH", "NARUTO", "DRAGON BALL", "BLACK CLOVER", "DIGIMON", "SWORD ART ONLINE", "ONE PIECE", "JUJUTSU KAISEN", "SOUL EATER", "OTHER"];
+const seriesOptions = ["ALL", ...seriesOrder.filter(series => COVERS.some(video => video.series === series))];
+const styleOptions = ["All styles", ...new Set(["English covers", "Acoustic", "Orchestral", ...COVERS.map(video => video.style)])];
 document.querySelector("#year").textContent = new Date().getFullYear();
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -35,7 +36,7 @@ function renderCovers() {
   const matches = COVERS.filter(item =>
     (activeSeries === "ALL" || item.series === activeSeries) &&
     (activeStyle === "All styles" || item.style === activeStyle) &&
-    [item.title,item.anime,item.style,item.series].join(" ").toLocaleLowerCase().includes(normalizedQuery)
+    [item.title,item.rawTitle || "",item.anime,item.style,item.series].join(" ").toLocaleLowerCase().includes(normalizedQuery)
   );
   const shown = matches.slice(0,visibleLimit);
   grid.innerHTML = shown.map(item => `
@@ -54,4 +55,16 @@ document.querySelector("#resetFilters").addEventListener("click", () => {
   activeSeries="ALL";activeStyle="All styles";query="";visibleLimit=9;searchInput.value="";
   renderControls();renderCovers();searchInput.focus({preventScroll:true});
 });
-renderControls();renderCovers();
+function renderLatestUpload() {
+  const latest = COVERS[0];
+  if (!latest) return;
+  const feature = document.querySelector(".hero-feature");
+  feature.href = `https://www.youtube.com/watch?v=${encodeURIComponent(latest.youtubeId)}`;
+  feature.setAttribute("aria-label", `Watch ${latest.title} — ${latest.style} on YouTube`);
+  const thumbnail = feature.querySelector("img");
+  thumbnail.src = `https://i.ytimg.com/vi/${encodeURIComponent(latest.youtubeId)}/hqdefault.jpg`;
+  thumbnail.alt = `${latest.title} — ${latest.anime}`;
+  feature.querySelector("strong").textContent = latest.title;
+  feature.querySelector("small").textContent = `${latest.anime} · ${latest.style}`;
+}
+renderLatestUpload();renderControls();renderCovers();

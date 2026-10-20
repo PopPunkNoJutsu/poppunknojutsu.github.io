@@ -1,35 +1,652 @@
-// Verified against the public PopPunk no Jutsu YouTube channel on 2026-10-20.
-// Add new uploads at the top. Each youtubeId must belong to the named video.
+// Generated from catalog.json. New uploads are synced by GitHub Actions.
+const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-20"};
 const COVERS = [
-  {title:"Kan Peki no Peki",anime:"Dragon Ball Super: Beerus · ED 1",series:"DRAGON BALL",style:"Orchestral",youtubeId:"XhU1Cm2LEno"},
-  {title:"Number One",anime:"BLEACH · Ichigo's theme",series:"BLEACH",style:"Acoustic",youtubeId:"N1TwH7Nk8RE"},
-  {title:"The Power to Resist",anime:"Dragon Ball Super: Beerus · OST",series:"DRAGON BALL",style:"Orchestral",youtubeId:"5K4lHvCIYFk"},
-  {title:"Goku’s Image Training Theme",anime:"Dragon Ball Super: Beerus · OST",series:"DRAGON BALL",style:"Orchestral",youtubeId:"mjrujO4Af8Q"},
-  {title:"Hero ~Song of Hope",anime:"Dragon Ball Z: Battle of Gods",series:"DRAGON BALL",style:"Orchestral",youtubeId:"rbw2XAa5h-w"},
-  {title:"Spin and Burst",anime:"Naruto the Movie · OST",series:"NARUTO",style:"Orchestral",youtubeId:"ZRSMHHV9gd0"},
-  {title:"Onogami",anime:"Dragon Ball Super: Beerus · OP 1",series:"DRAGON BALL",style:"Orchestral",youtubeId:"Tg6kL1vZ1mA"},
-  {title:"Kan Peki no Peki",anime:"Dragon Ball Super: Beerus · ED 1",series:"DRAGON BALL",style:"English covers",youtubeId:"jXOFo7QsNq0"},
-  {title:"Onogami",anime:"Dragon Ball Super: Beerus · OP",series:"DRAGON BALL",style:"English covers",youtubeId:"qBCZv6YjbcI"},
-  {title:"Onogami (TV Size)",anime:"Dragon Ball Super: Beerus · OP 1",series:"DRAGON BALL",style:"English covers",youtubeId:"dHwEjkyflrQ"},
-  {title:"Yellow Brick Road",anime:"Black Clover · Season 2 ED 1",series:"BLACK CLOVER",style:"English covers",youtubeId:"-WtmDrOPPfE"},
-  {title:"Ultimate Battle",anime:"Dragon Ball Super · OST",series:"DRAGON BALL",style:"English covers",youtubeId:"g_XGlmvk1Zo"},
-  {title:"Chu-Bura",anime:"BLEACH · OP 8",series:"BLEACH",style:"English covers",youtubeId:"2TWsHSvXlWA"},
-  {title:"Genkai Toppa × Survivor",anime:"Dragon Ball Super · OP 2",series:"DRAGON BALL",style:"English covers",youtubeId:"NIcz-A_8B6Y"},
-  {title:"Seishun Kyōsōkyoku",anime:"Naruto · OP 5",series:"NARUTO",style:"English covers",youtubeId:"FCA2-x6g9bE"},
-  {title:"Chōzetsu☆Dynamic!",anime:"Dragon Ball Super · OP 1",series:"DRAGON BALL",style:"English covers",youtubeId:"T8dScj9e7Dw"},
-  {title:"Onogami (Re:Make)",anime:"Dragon Ball Super: Beerus · OP",series:"DRAGON BALL",style:"English covers",youtubeId:"b4Cr7Clxq4Y"},
-  {title:"Kienai Riyuu",anime:"Black Clover · Season 2 OP 1",series:"BLACK CLOVER",style:"English covers",youtubeId:"FsucCXkt_N4"},
-  {title:"Saihate",anime:"BLEACH: Thousand-Year Blood War · ED 1",series:"BLEACH",style:"English covers",youtubeId:"WckpvKtTypY"},
-  {title:"Kanashimi wo Yasashisa ni",anime:"Naruto · OP 3",series:"NARUTO",style:"English covers",youtubeId:"BNKgweLicvA"},
-  {title:"Diver",anime:"Naruto Shippuden · OP 8",series:"NARUTO",style:"Acoustic",youtubeId:"m30T_qdpP0g"},
-  {title:"Endroll",anime:"BLEACH: Thousand-Year Blood War · ED 2",series:"BLEACH",style:"English covers",youtubeId:"W3Q3iY5MTZs"},
-  {title:"Brave Heart",anime:"Digimon Adventure · Evolution theme",series:"OTHER",style:"English covers",youtubeId:"H0W3pzQLNX4"},
-  {title:"Guren",anime:"Naruto Shippuden · OP 15",series:"NARUTO",style:"English covers",youtubeId:"O7C_Pyo3eCc"},
-  {title:"Haruka Kanata",anime:"Naruto · OP 2",series:"NARUTO",style:"Acoustic",youtubeId:"1Z5RwHmFwAg"},
-  {title:"Monochrome",anime:"BLEACH: Thousand-Year Blood War · ED 3",series:"BLEACH",style:"English covers",youtubeId:"sJGdzzfv5Ic"},
-  {title:"Hero ~Song of Hope",anime:"Dragon Ball Z: Battle of Gods",series:"DRAGON BALL",style:"English covers",youtubeId:"iBtNLmeKPdc"},
-  {title:"Diver",anime:"Naruto Shippuden · OP 8",series:"NARUTO",style:"English covers",youtubeId:"MvvCYxyQSlQ"},
-  {title:"Treachery",anime:"BLEACH: Thousand-Year Blood War",series:"BLEACH",style:"Orchestral",youtubeId:"Gtvrkq6Y1bY"},
-  {title:"Asterisk",anime:"BLEACH · OP 1",series:"BLEACH",style:"English covers",youtubeId:"LnBxH_aBpKg"},
-  {title:"Blue Bird",anime:"Naruto Shippuden · OP 3",series:"NARUTO",style:"English covers",youtubeId:"jg0U0WIeF0g"}
+  {
+    "youtubeId": "XhU1Cm2LEno",
+    "rawTitle": "「Kan Peki no Peki」Epic Orchestral ver - Dragon Ball Super: Beerus ED 1 | PopPunk no Jutsu",
+    "title": "Kan Peki no Peki",
+    "anime": "Dragon Ball Super: Beerus ED 1",
+    "series": "DRAGON BALL",
+    "style": "Orchestral"
+  },
+  {
+    "youtubeId": "N1TwH7Nk8RE",
+    "rawTitle": "「Number One」Acoustic English Ver - BLEACH Ichigo Theme | by PopPunk no Jutsu",
+    "title": "Number One",
+    "anime": "BLEACH Ichigo Theme",
+    "series": "BLEACH",
+    "style": "Acoustic"
+  },
+  {
+    "youtubeId": "5K4lHvCIYFk",
+    "rawTitle": "「The Power to Resist」Epic ver - Dragon Ball Super: Beerus EP 2 OST | PopPunk no Jutsu",
+    "title": "The Power to Resist",
+    "anime": "Dragon Ball Super: Beerus EP 2 OST",
+    "series": "DRAGON BALL",
+    "style": "Orchestral"
+  },
+  {
+    "youtubeId": "mjrujO4Af8Q",
+    "rawTitle": "「Goku’s Image Training Theme」Epic Orchestral ver - Dragon Ball Super: Beerus EP 1 | PopPunk no Jutsu",
+    "title": "Goku’s Image Training Theme",
+    "anime": "Dragon Ball Super: Beerus EP 1",
+    "series": "DRAGON BALL",
+    "style": "Orchestral"
+  },
+  {
+    "youtubeId": "rbw2XAa5h-w",
+    "rawTitle": "「Hero ~Song of Hope」Epic Orchestral ver - Dragon Ball Z: Battle of Gods | PopPunk no Jutsu",
+    "title": "Hero ~Song of Hope",
+    "anime": "Dragon Ball Z: Battle of Gods",
+    "series": "DRAGON BALL",
+    "style": "Orchestral"
+  },
+  {
+    "youtubeId": "ZRSMHHV9gd0",
+    "rawTitle": "「Spin and Burst」Epic Orchestral Ver - Naruto the Movie OST | PopPunk no Jutsu",
+    "title": "Spin and Burst",
+    "anime": "Naruto the Movie OST",
+    "series": "NARUTO",
+    "style": "Orchestral"
+  },
+  {
+    "youtubeId": "Tg6kL1vZ1mA",
+    "rawTitle": "「ONOGAMI」Epic Orchestral Ver - Dragon Ball Super: Beerus OP 1 | PopPunk no Jutsu",
+    "title": "ONOGAMI",
+    "anime": "Dragon Ball Super: Beerus OP 1",
+    "series": "DRAGON BALL",
+    "style": "Orchestral"
+  },
+  {
+    "youtubeId": "jXOFo7QsNq0",
+    "rawTitle": "「Kan Peki no Peki」English Ver - Dragon Ball Super: Beerus ED 1 | PopPunk no Jutsu",
+    "title": "Kan Peki no Peki",
+    "anime": "Dragon Ball Super: Beerus ED 1",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "qBCZv6YjbcI",
+    "rawTitle": "「ONOGAMI」English Ver - Dragon Ball Super: Beerus OP | PopPunk no Jutsu",
+    "title": "ONOGAMI",
+    "anime": "Dragon Ball Super: Beerus OP",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "dHwEjkyflrQ",
+    "rawTitle": "「ONOGAMI」English Ver (TV Size) - Dragon Ball Super: Beerus OP 1 | PopPunk no Jutsu",
+    "title": "ONOGAMI (TV Size)",
+    "anime": "Dragon Ball Super: Beerus OP 1",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "-WtmDrOPPfE",
+    "rawTitle": "「Yellow Brick Road」English Ver - Black Clover 2nd Season ED 1 | PopPunk no Jutsu",
+    "title": "Yellow Brick Road",
+    "anime": "Black Clover 2nd Season ED 1",
+    "series": "BLACK CLOVER",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "g_XGlmvk1Zo",
+    "rawTitle": "「Ultimate Battle | “Ka Ka Kachi Daze”」English Ver - Dragon Ball Super OST | PopPunk no Jutsu",
+    "title": "Ultimate Battle | “Ka Ka Kachi Daze”",
+    "anime": "Dragon Ball Super OST",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "2TWsHSvXlWA",
+    "rawTitle": "「Chu-Bura」English ver - BLEACH OP 8 | PopPunk no Jutsu",
+    "title": "Chu-Bura",
+    "anime": "BLEACH OP 8",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "NIcz-A_8B6Y",
+    "rawTitle": "「Genkai Toppa × Survivor | Limit Break x Survivor」English Ver - Dragon Ball Super OP 2",
+    "title": "Genkai Toppa × Survivor | Limit Break x Survivor",
+    "anime": "Dragon Ball Super OP 2",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "FCA2-x6g9bE",
+    "rawTitle": "「Seishun Kyōsōkyoku | Rhapsody of Youth」 English Ver - Naruto OP 5 | PopPunk no Jutsu",
+    "title": "Seishun Kyōsōkyoku | Rhapsody of Youth",
+    "anime": "Naruto OP 5",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "T8dScj9e7Dw",
+    "rawTitle": "「Chōzetsu☆Dynamic!」English Ver - Dragon Ball Super OP 1 | PopPunk no Jutsu",
+    "title": "Chōzetsu☆Dynamic!",
+    "anime": "Dragon Ball Super OP 1",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "b4Cr7Clxq4Y",
+    "rawTitle": "「ONOGAMI」English Ver - Dragon Ball Super: Beerus OP (Re:Make) | PopPunk no Jutsu",
+    "title": "ONOGAMI (Re:Make)",
+    "anime": "Dragon Ball Super: Beerus OP (Re:Make)",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "FsucCXkt_N4",
+    "rawTitle": "「Kienai Riyuu」English Ver - Black Clover 2nd Season OP 1 | PopPunk no Jutsu",
+    "title": "Kienai Riyuu",
+    "anime": "Black Clover 2nd Season OP 1",
+    "series": "BLACK CLOVER",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "WckpvKtTypY",
+    "rawTitle": "「Saihate」English Ver - BLEACH: Thousand-Year Blood War ED 1 | PopPunk no Jutsu",
+    "title": "Saihate",
+    "anime": "BLEACH: Thousand-Year Blood War ED 1",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "BNKgweLicvA",
+    "rawTitle": "「Kanashimi wo Yasashisa ni | Turning Sadness Into Kindness」 English Ver - Naruto OP 3",
+    "title": "Kanashimi wo Yasashisa ni | Turning Sadness Into Kindness",
+    "anime": "Naruto OP 3",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "m30T_qdpP0g",
+    "rawTitle": "「Diver」Acoustic English Ver - Naruto Shippuden OP 8 | PopPunk no Jutsu",
+    "title": "Diver",
+    "anime": "Naruto Shippuden OP 8",
+    "series": "NARUTO",
+    "style": "Acoustic"
+  },
+  {
+    "youtubeId": "W3Q3iY5MTZs",
+    "rawTitle": "「Endroll」English Ver - BLEACH: Thousand-Year Blood War ED 2 | PopPunk no Jutsu",
+    "title": "Endroll",
+    "anime": "BLEACH: Thousand-Year Blood War ED 2",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "H0W3pzQLNX4",
+    "rawTitle": "「brave heart」 English ver - Digimon Adventure Evolution Theme | PopPunk no Jutsu",
+    "title": "brave heart",
+    "anime": "Digimon Adventure Evolution Theme",
+    "series": "DIGIMON",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "O7C_Pyo3eCc",
+    "rawTitle": "「Guren | Crimson Lotus」English Ver - Naruto Shippuden OP 15 | PopPunk no Jutsu",
+    "title": "Guren | Crimson Lotus",
+    "anime": "Naruto Shippuden OP 15",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "1Z5RwHmFwAg",
+    "rawTitle": "「HARUKA KANATA」Acoustic English Ver - NARUTO OP 2 | PopPunk no Jutsu",
+    "title": "HARUKA KANATA",
+    "anime": "NARUTO OP 2",
+    "series": "NARUTO",
+    "style": "Acoustic"
+  },
+  {
+    "youtubeId": "sJGdzzfv5Ic",
+    "rawTitle": "「MONOCHROME」English Ver - BLEACH: Thousand-Year Blood War ED 3 | PopPunk no Jutsu",
+    "title": "MONOCHROME",
+    "anime": "BLEACH: Thousand-Year Blood War ED 3",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "iBtNLmeKPdc",
+    "rawTitle": "「Hero ~Song of Hope~ | Hero ~Kibou no Uta~」English ver - Dragon Ball Z: Battle of Gods",
+    "title": "Hero ~Song of Hope~ | Hero ~Kibou no Uta~",
+    "anime": "Dragon Ball Z: Battle of Gods",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "MvvCYxyQSlQ",
+    "rawTitle": "「Diver」English Ver - Naruto Shippuden OP 8 | PopPunk no Jutsu",
+    "title": "Diver",
+    "anime": "Naruto Shippuden OP 8",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "Gtvrkq6Y1bY",
+    "rawTitle": "「TREACHERY」AIZEN & ICHIGO VS YHWACH - EPIC Orchestral ver - BLEACH TYBW PART 4 | EPISODE 48",
+    "title": "TREACHERY",
+    "anime": "EPIC Orchestral ver - BLEACH TYBW PART 4 | EPISODE 48",
+    "series": "BLEACH",
+    "style": "Orchestral"
+  },
+  {
+    "youtubeId": "LnBxH_aBpKg",
+    "rawTitle": "「Asterisk」English ver - BLEACH OP 1 | PopPunk no Jutsu",
+    "title": "Asterisk",
+    "anime": "BLEACH OP 1",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "TyNsWr5H7lU",
+    "rawTitle": "「Kaze | Wind」English Ver - Naruto Shippuden OP 17 | PopPunk no Jutsu",
+    "title": "Kaze | Wind",
+    "anime": "Naruto Shippuden OP 17",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "cvjjO_qFpAY",
+    "rawTitle": "「BLUE BIRD」Acoustic English Ver - Naruto Shippuden OP 3 | PopPunk no Jutsu",
+    "title": "BLUE BIRD",
+    "anime": "Naruto Shippuden OP 3",
+    "series": "NARUTO",
+    "style": "Acoustic"
+  },
+  {
+    "youtubeId": "hmc7RtSYloQ",
+    "rawTitle": "「Scar」English ver - BLEACH: Thousand-Year Blood War OP 1 | PopPunk no Jutsu",
+    "title": "Scar",
+    "anime": "BLEACH: Thousand-Year Blood War OP 1",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "XYAtRmUA6XQ",
+    "rawTitle": "「Butter-Fly」English ver - Digimon Adventure Tri. OP | PopPunk no Jutsu",
+    "title": "Butter-Fly",
+    "anime": "Digimon Adventure Tri. OP",
+    "series": "DIGIMON",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "2FNNEc_zVgE",
+    "rawTitle": "「Lovers」English Ver - Naruto Shippuden OP 9 | PopPunk no Jutsu",
+    "title": "Lovers",
+    "anime": "Naruto Shippuden OP 9",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "ArYj65TmUOI",
+    "rawTitle": "「Ranbu no Melody」 Acoustic English ver - BLEACH OP 13 | PopPunk no Jutsu",
+    "title": "Ranbu no Melody",
+    "anime": "BLEACH OP 13",
+    "series": "BLEACH",
+    "style": "Acoustic"
+  },
+  {
+    "youtubeId": "Zb8nX_W_SZQ",
+    "rawTitle": "「Harukaze」English ver - BLEACH OP 15 | PopPunk no Jutsu",
+    "title": "Harukaze",
+    "anime": "BLEACH OP 15",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "Ha208dwRQpQ",
+    "rawTitle": "「Break Up!」English ver - Digimon Adventure 02 Evolution Theme | PopPunk no Jutsu",
+    "title": "Break Up!",
+    "anime": "Digimon Adventure 02 Evolution Theme",
+    "series": "DIGIMON",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "QLbVmQ9NCFA",
+    "rawTitle": "「Sign」English Ver - Naruto Shippuden OP 6 | PopPunk no Jutsu",
+    "title": "Sign",
+    "anime": "Naruto Shippuden OP 6",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "OGks49mFq7A",
+    "rawTitle": "「RASEN - Orihime's Sacrifice」Epic Orchestra Version - BLEACH: Thousand-Year Blood War 4 | DEFEND YOU",
+    "title": "RASEN - Orihime's Sacrifice",
+    "anime": "BLEACH: Thousand-Year Blood War 4 | DEFEND YOU",
+    "series": "BLEACH",
+    "style": "Orchestral"
+  },
+  {
+    "youtubeId": "tJSpWKxx7pc",
+    "rawTitle": "「RASEN - Orihime's Sacrifice」Acoustic English Ver- BLEACH: Thousand-Year Blood War ED 4 | DEFEND YOU",
+    "title": "RASEN - Orihime's Sacrifice",
+    "anime": "BLEACH: Thousand-Year Blood War ED 4 | DEFEND YOU",
+    "series": "BLEACH",
+    "style": "Acoustic"
+  },
+  {
+    "youtubeId": "saeYauVW1-o",
+    "rawTitle": "「BLUE」English Ver - BLEACH OP 14 | PopPunk no Jutsu",
+    "title": "BLUE",
+    "anime": "BLEACH OP 14",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "--uiMitYOcA",
+    "rawTitle": "「THE BIGGEST FIGHT」English ver - Dragon Ball GT: Final Bout Game Theme OP | PopPunk no Jutsu",
+    "title": "THE BIGGEST FIGHT",
+    "anime": "Dragon Ball GT: Final Bout Game Theme OP",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "rFaAsXtlNlw",
+    "rawTitle": "「Silhouette」English Ver - Naruto Shippuden OP 16 | PopPunk no Jutsu",
+    "title": "Silhouette",
+    "anime": "Naruto Shippuden OP 16",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "oQMLlgU-w5I",
+    "rawTitle": "「Anima Rossa」English Ver - BLEACH OP 11 | PopPunk no Jutsu",
+    "title": "Anima Rossa",
+    "anime": "BLEACH OP 11",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "3JAgnr1QdyE",
+    "rawTitle": "「PAPERMOON」English ver - Soul Eater OP 2 | PopPunk no Jutsu",
+    "title": "PAPERMOON",
+    "anime": "Soul Eater OP 2",
+    "series": "SOUL EATER",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "R87Xc9ZexzU",
+    "rawTitle": "「ADAMAS」English ver - Sword Art Online Alicization: War of Underworld OP | PopPunk no Jutsu",
+    "title": "ADAMAS",
+    "anime": "Sword Art Online Alicization: War of Underworld OP",
+    "series": "SWORD ART ONLINE",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "PQZGxdW1ZiM",
+    "rawTitle": "「Hero's Come Back!!」English Ver - Naruto Shippuden OP 1 | PopPunk no Jutsu",
+    "title": "Hero's Come Back!!",
+    "anime": "Naruto Shippuden OP 1",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "iVaUsJH5irs",
+    "rawTitle": "「Ranbu no Melody」English ver - BLEACH OP 13 | PopPunk no Jutsu",
+    "title": "Ranbu no Melody",
+    "anime": "BLEACH OP 13",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "h7fEHckEgOA",
+    "rawTitle": "「ZERO」English Ver - Dragon Ball: Sparking! ZERO NEO DLC OPENING Theme | PopPunk no Jutsu",
+    "title": "ZERO",
+    "anime": "Dragon Ball: Sparking! ZERO NEO DLC OPENING Theme",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "ENw0K4Uy26c",
+    "rawTitle": "「GO!!!」English Ver - Naruto OP 4 | PopPunk no Jutsu",
+    "title": "GO!!!",
+    "anime": "Naruto OP 4",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "tNhaaaTryMc",
+    "rawTitle": "「Velonica」English ver - BLEACH OP 9 | PopPunk no Jutsu",
+    "title": "Velonica",
+    "anime": "BLEACH OP 9",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "RbOa0DPYGIg",
+    "rawTitle": "「Kiseki no Honoo yo Moeagare」English ver - Dragon Ball Z: Burst Limit OP | PopPunk no Jutsu",
+    "title": "Kiseki no Honoo yo Moeagare",
+    "anime": "Dragon Ball Z: Burst Limit OP",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "jg0U0WIeF0g",
+    "rawTitle": "「BLUE BIRD」English Ver - Naruto Shippuden OP 3 | PopPunk no Jutsu",
+    "title": "BLUE BIRD",
+    "anime": "Naruto Shippuden OP 3",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "ddPIZ_6GVC8",
+    "rawTitle": "「RASEN」English Ver - BLEACH: Thousand-Year Blood War ED 4 | PopPunk no Jutsu",
+    "title": "RASEN",
+    "anime": "BLEACH: Thousand-Year Blood War ED 4",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "6IDO_Ibebm0",
+    "rawTitle": "「I-BULL」English Ver - BLEACH: Thousand-Year Blood War OP 4 | PopPunk no Jutsu",
+    "title": "I-BULL",
+    "anime": "BLEACH: Thousand-Year Blood War OP 4",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "oR0gUG-aTlA",
+    "rawTitle": "「STARS」English ver - BLEACH: Thousand-Year Blood War OP 2 | PopPunk no Jutsu",
+    "title": "STARS",
+    "anime": "BLEACH: Thousand-Year Blood War OP 2",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "Igh1tl-WCSk",
+    "rawTitle": "「ANIMA」English ver - Sword Art Online Alicization: War of Underworld OP | PopPunk no Jutsu",
+    "title": "ANIMA",
+    "anime": "Sword Art Online Alicization: War of Underworld OP",
+    "series": "SWORD ART ONLINE",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "_B6gkJqDAAI",
+    "rawTitle": "「HARUKA KANATA」English Ver - NARUTO OP 2 | PopPunk no Jutsu",
+    "title": "HARUKA KANATA",
+    "anime": "NARUTO OP 2",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "PCbrFJakSBg",
+    "rawTitle": "「Shojo S」English ver - BLEACH OP 10 (Re:Mix Edit) | PopPunk no Jutsu",
+    "title": "Shojo S (Re:Mix Edit)",
+    "anime": "BLEACH OP 10 (Re:Mix Edit)",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "317hIvCpvk4",
+    "rawTitle": "「CLOSER」English ver - Naruto Shippuden OP 4 | PopPunk no Jutsu",
+    "title": "CLOSER",
+    "anime": "Naruto Shippuden OP 4",
+    "series": "NARUTO",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "u06YFuQvD6g",
+    "rawTitle": "「Dragon Soul」English ver - Dragon Ball Kai OP | PopPunk no Jutsu",
+    "title": "Dragon Soul",
+    "anime": "Dragon Ball Kai OP",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "VnZShHM3qZo",
+    "rawTitle": "「Rolling Star」English ver - BLEACH OP 5 | PopPunk no Jutsu",
+    "title": "Rolling Star",
+    "anime": "BLEACH OP 5",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "SiziSIjfSMw",
+    "rawTitle": "「Chu-Bura」English ver - BLEACH OP 8 (Re:Mix Edit) | PopPunk no Jutsu",
+    "title": "Chu-Bura (Re:Mix Edit)",
+    "anime": "BLEACH OP 8 (Re:Mix Edit)",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "Y8yPAPU26jU",
+    "rawTitle": "「After Dark」English ver - BLEACH OP 7 | PopPunk no Jutsu",
+    "title": "After Dark",
+    "anime": "BLEACH OP 7",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "OUjoNeioTEk",
+    "rawTitle": "「Tonight, Tonight, Tonight」English ver - BLEACH OP 4 (Re:Mix Edit) | PopPunk no Jutsu",
+    "title": "Tonight, Tonight, Tonight (Re:Mix Edit)",
+    "anime": "BLEACH OP 4 (Re:Mix Edit)",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "G16CyNct60w",
+    "rawTitle": "「Treachery」Pop Rock ver - BLEACH OST | PopPunk no Jutsu",
+    "title": "Treachery",
+    "anime": "BLEACH OST",
+    "series": "BLEACH",
+    "style": "Pop rock"
+  },
+  {
+    "youtubeId": "uE71Fem0Kn8",
+    "rawTitle": "「Ichirin no Hana」English ver - BLEACH OP 3 | PopPunk no Jutsu",
+    "title": "Ichirin no Hana",
+    "anime": "BLEACH OP 3",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "NZKfSBy52fE",
+    "rawTitle": "「D-tecnoLife」English ver - BLEACH OP 2 | PopPunk no Jutsu",
+    "title": "D-tecnoLife",
+    "anime": "BLEACH OP 2",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "dY1Jd0RJoGc",
+    "rawTitle": "「Number One」EPIC Orchestra ver - BLEACH OST Ichigo Theme | PopPunk no Jutsu",
+    "title": "Number One",
+    "anime": "BLEACH OST Ichigo Theme",
+    "series": "BLEACH",
+    "style": "Orchestral"
+  },
+  {
+    "youtubeId": "idKZ74ebtOw",
+    "rawTitle": "「Asterisk」English ver - BLEACH OP 1 (Re:Mix Edit) | PopPunk no Jutsu",
+    "title": "Asterisk (Re:Mix Edit)",
+    "anime": "BLEACH OP 1 (Re:Mix Edit)",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "UdsycYGRe0A",
+    "rawTitle": "「ALONES」English ver - BLEACH OP 6 | PopPunk no Jutsu",
+    "title": "ALONES",
+    "anime": "BLEACH OP 6",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "ddRXV212Q_M",
+    "rawTitle": "「chAngE」English ver - BLEACH OP 12 | PopPunk no Jutsu",
+    "title": "chAngE",
+    "anime": "BLEACH OP 12",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "z78awk-J7sw",
+    "rawTitle": "「Super Survivor」English ver - Dragon Ball Z: Budokai Tenkaichi 3 Game OP | PopPunk no Jutsu",
+    "title": "Super Survivor",
+    "anime": "Dragon Ball Z: Budokai Tenkaichi 3 Game OP",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "dRWqQIPSm-o",
+    "rawTitle": "「Battle Of Omega 」English ver - Dragon Ball: Raging Blast 2 Game OP | PopPunk no Jutsu",
+    "title": "Battle Of Omega",
+    "anime": "Dragon Ball: Raging Blast 2 Game OP",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "jk3WHMf71WE",
+    "rawTitle": "「Crossing Field」English ver - Sword Art Online OP 1 | PopPunk no Jutsu",
+    "title": "Crossing Field",
+    "anime": "Sword Art Online OP 1",
+    "series": "SWORD ART ONLINE",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "kuJGlJzfA7M",
+    "rawTitle": "「I Won't Stop Till the End!!」English ver - Dragon Ball Z: Budokai 3 Game OP | PopPunk no Jutsu",
+    "title": "I Won't Stop Till the End!!",
+    "anime": "Dragon Ball Z: Budokai 3 Game OP",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "wPWuA4Dzonk",
+    "rawTitle": "「Without Any Words」English ver - BLEACH: Thousand-Year Blood War OP 3| PopPunk no Jutsu",
+    "title": "Without Any Words",
+    "anime": "BLEACH: Thousand-Year Blood War OP 3",
+    "series": "BLEACH",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "yvWllJYfcsQ",
+    "rawTitle": "「Memories」English ver - One Piece ED 1 | PopPunk no Jutsu",
+    "title": "Memories",
+    "anime": "One Piece ED 1",
+    "series": "ONE PIECE",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "I3R-FdqdLfU",
+    "rawTitle": "「AIZO」English ver - JUJUTSU KAISEN OP 5 | PopPunk no Jutsu",
+    "title": "AIZO",
+    "anime": "JUJUTSU KAISEN OP 5",
+    "series": "JUJUTSU KAISEN",
+    "style": "English covers"
+  },
+  {
+    "youtubeId": "a_yMyj5OzWE",
+    "rawTitle": "「DREAMIN' ON」English ver-ONE PIECE OP 23 | PopPunk no Jutsu",
+    "title": "DREAMIN' ON",
+    "anime": "ONE PIECE OP 23",
+    "series": "ONE PIECE",
+    "style": "English covers"
+  }
 ];

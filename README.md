@@ -1,30 +1,45 @@
-# PopPunk no Jutsu website
+# PopPunk no Jutsu
 
-Open index.html in your browser to preview the website.
+Website: https://poppunknojutsu.github.io/
 
-This portable package contains:
-- index.html: page structure, featured video, playlists and social links
-- styles.css: black, hot pink and off-white responsive design
-- covers.js: 31 verified YouTube video links, checked on 2026-10-20
-- script.js: combined search, anime/style filters, reset and load-more behavior
-- assets/: the channel's existing logo and banner
+The complete public channel catalog is searchable by song, anime and style. The initial collection contains all 81 uploads visible on the channel on October 20, 2026. The About section, Production Note and Copyright Notice reproduce the channel description on that date.
 
-To add a cover, add an object at the top of COVERS in covers.js. Update the featured video in index.html when choosing a new release. The curated catalog does not automatically sync new uploads.
+## Automatic updates
 
-The public page contains no links to the owner's GitHub profile or repositories. This does not change the visibility of any existing GitHub repository.
+The GitHub Actions workflow **Update channel and publish website** checks YouTube's public upload feed hourly, at minute 17. GitHub may delay scheduled runs, so updates are not instant.
 
-## Publish to GitHub Pages
+- New public uploads are added without editing website files.
+- The featured Latest Drop follows the newest catalog entry.
+- Titles, thumbnails and YouTube links come from the channel.
+- Anime and style labels are inferred from the video title. An unfamiliar series is grouped under Other.
+- Older uploads remain saved when they leave YouTube's recent-upload feed.
+- If YouTube is unavailable or returns invalid data, the saved catalog remains intact and the next hourly run retries.
+- No YouTube API key, password or paid service is needed.
 
-The intended website address is https://poppunknojutsu.github.io/.
+The feed contains only the latest 15 uploads. A long interruption that spans more than 15 uploads needs a catalog backfill. This process adds public uploads; it does not automatically remove deleted/private older videos. Channel-description changes can be copied into the website separately.
 
-1. Create a public repository named `poppunknojutsu.github.io` owned by the `PopPunkNoJutsu` organization.
-2. Upload the contents of this folder, including `assets/` and `.nojekyll`. Keep `index.html` at the repository root; do not upload the ZIP itself or wrap the files inside another folder.
-3. Commit the files to `main`.
-4. Open the repository's Settings > Pages. Under Build and deployment, choose Deploy from a branch, then `main` and `/(root)`, and save.
-5. Wait for GitHub's deployment to finish, then use the Visit site link.
+The workflow saves a date of its last successful check daily, even when there are no new uploads, keeping a record of successful checks. GitHub can disable schedules after prolonged repository inactivity; check Actions if updates ever stop.
 
-No build commands or paid hosting plan are needed. The `.nojekyll` file tells GitHub to serve these static files directly.
+## Update now
 
-Deployment status must be checked in GitHub; the address above is the intended address, not proof that the site is already live. Source checks passed. Browser visual checks are still pending.
+Open the repository's **Actions** tab, choose **Update channel and publish website**, and select **Run workflow**. The run summary reports whether YouTube was checked successfully and how many uploads are saved.
 
-Original channel artwork and third-party music, lyrics, characters and related material remain subject to their respective rights holders. The website includes the channel's Production Note and Copyright notice.
+GitHub Pages must use **Settings > Pages > Source: GitHub Actions**. This workflow deploys the website directly; it does not rely on a bot commit triggering another Pages build.
+
+## Files
+
+- `index.html`: page content, channel description and social links
+- `styles.css`: responsive black, pink and off-white design
+- `script.js`: search, filters, latest feature and load-more controls
+- `catalog.json`: retained source catalog and channel description
+- `covers.js`: generated catalog used by the page
+- `sync_youtube.py`: feed validation, merging and catalog generation
+- `test_sync_youtube.py`: updater tests
+- `.github/workflows/update-site.yml`: hourly update and publishing workflow
+- `assets/`: existing channel artwork
+
+To correct a catalog label manually, edit `catalog.json` and run `python sync_youtube.py --render-only`. For entries still in the recent feed, the next sync derives labels again from the title.
+
+The website does not link to the personal GitHub profile. The public repository's commit history still identifies contributors.
+
+Original music, lyrics, characters, images, logos and related intellectual property remain with their respective rights holders.
