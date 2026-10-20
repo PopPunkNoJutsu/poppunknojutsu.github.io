@@ -6,7 +6,7 @@ const showMore = document.querySelector("#showMore");
 let activeSeries = "ALL", activeStyle = "All styles", query = "", visibleLimit = 9;
 const seriesOrder = ["BLEACH", "NARUTO", "DRAGON BALL", "BLACK CLOVER", "DIGIMON", "SWORD ART ONLINE", "ONE PIECE", "JUJUTSU KAISEN", "SOUL EATER", "OTHER"];
 const seriesOptions = ["ALL", ...seriesOrder.filter(series => COVERS.some(video => video.series === series))];
-const styleOptions = ["All styles", ...new Set(["English covers", "Acoustic", "Orchestral", ...COVERS.map(video => video.style)])];
+const styleOptions = ["All styles", ...new Set(["English covers", "Acoustic", "Orchestral", ...COVERS.map(video => video.style)])].filter(style => style.toLocaleLowerCase() !== "pop rock");
 document.querySelector("#year").textContent = new Date().getFullYear();
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
