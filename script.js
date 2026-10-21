@@ -68,3 +68,51 @@ function renderLatestUpload() {
   feature.querySelector("small").textContent = `${latest.anime} · ${latest.style}`;
 }
 renderLatestUpload();renderControls();renderCovers();
+
+// Shared website visit count. Only the production site records a visit.
+async function updateVisitCounter() {
+  const output = document.querySelector("#visitCount");
+  if (!output) return;
+  const storageKey = "ppnj:last-counted-visit";
+  const counterKey = "poppunknojutsu_github_io_visits_20261021_9e8bf73a";
+  const visitWindow = 30 * 60 * 1000;
+  const update = async () => {
+    const now = Date.now();
+    let lastVisit = null;
+    try {
+      const stored = localStorage.getItem(storageKey);
+      if (stored !== null && Number.isFinite(Number(stored))) lastVisit = Number(stored);
+    } catch (_) { /* Counting can still work when browser storage is disabled. */ }
+    const recentlyCounted = lastVisit !== null && now >= lastVisit && now - lastVisit < visitWindow;
+    const action = location.hostname === "poppunknojutsu.github.io" && !recentlyCounted ? "hit" : "get";
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    try {
+      const response = await fetch(`https://countapi.mileshilliard.com/api/v1/${action}/${counterKey}`, {
+        signal: controller.signal, cache: "no-store", credentials: "omit", referrerPolicy: "no-referrer"
+      });
+      if (!response.ok) throw new Error("Visit counter unavailable");
+      const data = await response.json();
+      const count = Number(data.value);
+      if (!/^\d+$/.test(String(data.value)) || !Number.isSafeInteger(count)) throw new Error("Invalid visit count");
+      output.textContent = new Intl.NumberFormat().format(count);
+      if (action === "hit") {
+        try { localStorage.setItem(storageKey, String(now)); } catch (_) { /* Storage is optional. */ }
+      }
+    } finally {
+      clearTimeout(timeout);
+    }
+  };
+  try {
+    // Coordinate open tabs where supported, avoiding simultaneous duplicate counts.
+    if (typeof navigator !== "undefined" && navigator.locks?.request) {
+      await navigator.locks.request("ppnj-visit-counter", update);
+    } else {
+      await update();
+    }
+  } catch (_) {
+    output.textContent = "—";
+    output.closest(".site-visits").title = "Visit count temporarily unavailable. Please check again later.";
+  }
+}
+updateVisitCounter();

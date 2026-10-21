@@ -31,6 +31,14 @@ Open the repository's **Actions** tab, choose **Update channel and publish websi
 
 GitHub Pages must use **Settings > Pages > Source: GitHub Actions**. This workflow deploys the website directly; it does not rely on a bot commit triggering another Pages build.
 
+## Subscribe buttons and visit counter
+
+The header, hero and closing section link to the channel's YouTube subscription prompt. Visitors must confirm their own subscription, then choose **All** using YouTube's bell menu; a website cannot select that preference for them. See [YouTube notification settings](https://support.google.com/youtube/answer/3382248).
+
+The footer shows a shared, approximate visit count using [CountAPI](https://countapi.mileshilliard.com/), starting on 21 October 2026. It does not include earlier traffic and is not a count of unique people. Browser storage avoids counting repeat loads within 30 minutes; when supported, a browser lock coordinates simultaneous tabs. If storage is blocked, each load can count. Only the production hostname records visits; previews read the number without incrementing it.
+
+The counter request uses a fixed public key, omits cookies and credentials, and sends no referrer or visitor identifier. Like any external endpoint, the service receives ordinary network request metadata. It is a free public counter, so figures can include bots, testing and deliberate inflation; it is not audited analytics. If the service is unavailable, the website shows a dash rather than inventing a count. The counter is stored independently of GitHub Pages and is not reset by the hourly song or playlist updates. Keep the counter key in `script.js` unchanged to preserve the total.
+
 ## Files
 
 - `index.html`: page content, channel description and social links
