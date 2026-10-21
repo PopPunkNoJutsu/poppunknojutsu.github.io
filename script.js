@@ -15,9 +15,9 @@ function setupThemeToggle() {
     document.documentElement.style.colorScheme = theme === "light" ? "light" : "dark";
     document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "light" ? "#f5f1e9" : "#101013");
     const next = nextMode(theme);
-    button.querySelector("span").textContent = labels[next];
-    button.setAttribute("aria-label", `Switch to ${next} mode`);
-    button.title = `${labels[theme]} mode. Switch to ${labels[next]}. Modes: Dark, Light, Original.`;
+    button.querySelector("span").textContent = labels[theme];
+    button.setAttribute("aria-label", `Current theme: ${labels[theme]}. Switch to ${labels[next]} mode`);
+    button.title = `Current theme: ${labels[theme]}. Click to switch to ${labels[next]}.`;
   };
   const applyPreference = () => apply(preference || (system?.matches ? "dark" : "light"));
   applyPreference();
