@@ -6,6 +6,8 @@ The complete public channel catalog is searchable by song, anime and style. The 
 
 ## Automatic updates
 
+All video cards and the Latest Drop request each video's `maxresdefault.jpg` thumbnail (normally 1280 × 720). The shared image loader automatically applies to existing uploads and future catalog additions. If YouTube has no maximum-resolution image, it tries `sddefault.jpg`, then `hqdefault.jpg`, detecting both loading errors and tiny placeholder images. Catalog images remain lazy-loaded to avoid downloading the entire collection at once.
+
 The GitHub Actions workflow **Update channel and publish website** checks YouTube's public upload feed and channel playlists hourly, at minute 17. GitHub may delay scheduled runs, so updates are not instant.
 
 - New public uploads are added without editing website files.

@@ -11,6 +11,24 @@ document.querySelector("#year").textContent = new Date().getFullYear();
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
+function setVideoThumbnail(image, videoId) {
+  // This shared loader also covers every future upload imported into COVERS.
+  const sizes = ["maxresdefault", "sddefault", "hqdefault"];
+  const base = `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/`;
+  let size = 0;
+  const stop = () => { image.onload = null; image.onerror = null; };
+  const fallback = () => {
+    if (size < sizes.length - 1) image.src = `${base}${sizes[++size]}.jpg`;
+    else stop();
+  };
+  image.onerror = fallback;
+  image.onload = () => {
+    // YouTube can return a tiny placeholder instead of a missing-image error.
+    if (image.naturalWidth <= 120) fallback();
+    else stop();
+  };
+  image.src = `${base}${sizes[size]}.jpg`;
+}
 function renderControls() {
   for (const [selector, options, active, setActive] of [
     ["#seriesFilters", seriesOptions, activeSeries, value => {activeSeries=value;}],
@@ -41,9 +59,10 @@ function renderCovers() {
   const shown = matches.slice(0,visibleLimit);
   grid.innerHTML = shown.map(item => `
     <a class="cover-card" href="https://www.youtube.com/watch?v=${encodeURIComponent(item.youtubeId)}" target="_blank" rel="noopener noreferrer">
-      <div class="cover-art"><img src="https://i.ytimg.com/vi/${encodeURIComponent(item.youtubeId)}/hqdefault.jpg" alt="${escapeHtml(item.title)} — ${escapeHtml(item.anime)}" width="480" height="360" loading="lazy"><span class="play-pill" aria-hidden="true">▶ WATCH</span></div>
+      <div class="cover-art"><img alt="${escapeHtml(item.title)} — ${escapeHtml(item.anime)}" width="1280" height="720" loading="lazy" decoding="async"><span class="play-pill" aria-hidden="true">▶ WATCH</span></div>
       <div class="cover-meta"><p class="category">${escapeHtml(item.style)}</p><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.anime)}</p></div>
     </a>`).join("");
+  grid.querySelectorAll(".cover-art img").forEach((image, index) => setVideoThumbnail(image, shown[index].youtubeId));
   emptyState.hidden = matches.length !== 0;
   showMore.hidden = shown.length >= matches.length;
   showMore.textContent = `More covers (${matches.length - shown.length}) ↓`;
@@ -62,7 +81,7 @@ function renderLatestUpload() {
   feature.href = `https://www.youtube.com/watch?v=${encodeURIComponent(latest.youtubeId)}`;
   feature.setAttribute("aria-label", `Watch ${latest.title} — ${latest.style} on YouTube`);
   const thumbnail = feature.querySelector("img");
-  thumbnail.src = `https://i.ytimg.com/vi/${encodeURIComponent(latest.youtubeId)}/hqdefault.jpg`;
+  setVideoThumbnail(thumbnail, latest.youtubeId);
   thumbnail.alt = `${latest.title} — ${latest.anime}`;
   feature.querySelector("strong").textContent = latest.title;
   feature.querySelector("small").textContent = `${latest.anime} · ${latest.style}`;
