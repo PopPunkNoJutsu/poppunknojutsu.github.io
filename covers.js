@@ -1,5 +1,5 @@
 // Generated from catalog.json. New uploads are synced by GitHub Actions.
-const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-20"};
+const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-21"};
 const COVERS = [
   {
     "youtubeId": "elv_X95JL2s",
@@ -251,9 +251,9 @@ const COVERS = [
   },
   {
     "youtubeId": "Gtvrkq6Y1bY",
-    "rawTitle": "「TREACHERY」AIZEN & ICHIGO VS YHWACH - EPIC Orchestral ver - BLEACH TYBW PART 4 | EPISODE 48",
+    "rawTitle": "「TREACHERY」AIZEN & ICHIGO VS YHWACH - Epic Orchestral ver - BLEACH TYBW PART 4 | EPISODE 48",
     "title": "TREACHERY",
-    "anime": "EPIC Orchestral ver - BLEACH TYBW PART 4 | EPISODE 48",
+    "anime": "Epic Orchestral ver - BLEACH TYBW PART 4 | EPISODE 48",
     "series": "BLEACH",
     "style": "Orchestral"
   },
@@ -339,7 +339,7 @@ const COVERS = [
   },
   {
     "youtubeId": "OGks49mFq7A",
-    "rawTitle": "「RASEN - Orihime's Sacrifice」Epic Orchestra Version - BLEACH: Thousand-Year Blood War 4 | DEFEND YOU",
+    "rawTitle": "「RASEN - Orihime's Sacrifice」Epic Orchestral ver - BLEACH: Thousand-Year Blood War 4 | DEFEND YOU",
     "title": "RASEN - Orihime's Sacrifice",
     "anime": "BLEACH: Thousand-Year Blood War 4 | DEFEND YOU",
     "series": "BLEACH",
