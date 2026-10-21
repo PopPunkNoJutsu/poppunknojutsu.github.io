@@ -30,19 +30,29 @@ jobs:
         id: youtube
         continue-on-error: true
         run: python3 sync_youtube.py
-      - name: Keep the saved catalog if YouTube is temporarily unavailable
-        if: steps.youtube.outcome == 'failure'
+      - name: Prepare the public channel checker
+        id: channel_tools
+        continue-on-error: true
+        timeout-minutes: 2
         run: |
-          echo "::warning::YouTube could not be checked. The saved catalog is preserved; the next hourly run will retry."
+          python3 -m venv .playlist-runtime
+          .playlist-runtime/bin/python -m pip install --disable-pip-version-check yt-dlp==2026.8.19
+      - name: Check the Videos tab if the upload feed is unavailable
+        id: upload_fallback
+        if: steps.youtube.outcome == 'failure' && steps.channel_tools.outcome == 'success'
+        continue-on-error: true
+        timeout-minutes: 2
+        run: .playlist-runtime/bin/python sync_youtube.py --channel-page
+      - name: Keep the saved catalog if both upload sources are unavailable
+        if: steps.youtube.outcome == 'failure' && steps.upload_fallback.outcome != 'success'
+        run: |
+          echo "::warning::YouTube uploads could not be checked. The saved catalog is preserved; the next hourly run will retry."
           python3 sync_youtube.py --render-only
       - name: Check YouTube for new playlists
         id: playlists
         continue-on-error: true
-        timeout-minutes: 4
-        run: |
-          python3 -m venv .playlist-runtime
-          .playlist-runtime/bin/python -m pip install --disable-pip-version-check yt-dlp==2026.8.19
-          .playlist-runtime/bin/python sync_playlists.py
+        timeout-minutes: 3
+        run: .playlist-runtime/bin/python sync_playlists.py
       - name: Keep saved playlists if YouTube is temporarily unavailable
         if: steps.playlists.outcome == 'failure'
         run: |
@@ -68,6 +78,8 @@ jobs:
       - name: Record sync result
         run: |
           echo "YouTube feed check: ${{ steps.youtube.outcome }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "YouTube channel upload backup: ${{ steps.upload_fallback.outcome }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "YouTube upload check: ${{ (steps.youtube.outcome == 'success' || steps.upload_fallback.outcome == 'success') && 'success' || 'failure' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "YouTube playlist check: ${{ steps.playlists.outcome }}" >> "$GITHUB_STEP_SUMMARY"
           python3 -c "import json; print('Catalog: ' + str(len(json.load(open('catalog.json'))['videos'])) + ' uploads')" >> "$GITHUB_STEP_SUMMARY"
           python3 -c "import json; print('Playlists: ' + str(len(json.load(open('playlists.json'))['playlists'])))" >> "$GITHUB_STEP_SUMMARY"
