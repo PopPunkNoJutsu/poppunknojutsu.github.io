@@ -4,6 +4,10 @@ Website: https://poppunknojutsu.github.io/
 
 The complete public channel catalog is searchable by song, anime and style. The initial collection contains all 81 uploads visible on the channel on October 20, 2026. The About section, Production Note and Copyright Notice reproduce the channel description on that date.
 
+## Random song picker
+
+“Let a song choose you” reveals a randomly selected song, its maximum-resolution thumbnail, and a link to watch on YouTube. It uses the complete catalog, independently of search and filters, so newly synced uploads are automatically eligible on the next page load. During a page visit it shuffles through every video before repeating, and avoids consecutive repeats across reshuffles. Reloading the page starts a fresh shuffle. The button supports keyboard use and announces each result to screen readers; playback starts only when the visitor follows the YouTube link.
+
 ## Automatic updates
 
 All video cards and the Latest Drop request each video's `maxresdefault.jpg` thumbnail (normally 1280 × 720). The shared image loader automatically applies to existing uploads and future catalog additions. If YouTube has no maximum-resolution image, it tries `sddefault.jpg`, then `hqdefault.jpg`, detecting both loading errors and tiny placeholder images. Catalog images remain lazy-loaded to avoid downloading the entire collection at once.

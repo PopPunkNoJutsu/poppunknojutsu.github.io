@@ -88,6 +88,51 @@ function renderLatestUpload() {
 }
 renderLatestUpload();renderControls();renderCovers();
 
+function createSongPicker(catalog, random = Math.random) {
+  const songs = [...new Map(catalog.map(song => [song.youtubeId, song])).values()];
+  let remaining = [], previousId = null;
+  return () => {
+    if (!songs.length) return null;
+    if (!remaining.length) {
+      remaining = [...songs];
+      for (let i = remaining.length - 1; i > 0; i--) {
+        const j = Math.floor(random() * (i + 1));
+        [remaining[i], remaining[j]] = [remaining[j], remaining[i]];
+      }
+      // After every song has had a turn, start fresh without repeating the last pick.
+      const last = remaining.length - 1;
+      if (last > 0 && remaining[last].youtubeId === previousId) {
+        [remaining[0], remaining[last]] = [remaining[last], remaining[0]];
+      }
+    }
+    const song = remaining.pop();
+    previousId = song.youtubeId;
+    return song;
+  };
+}
+function setupSongRandomizer() {
+  const button = document.querySelector("#randomSongButton");
+  if (!button) return;
+  const pickSong = createSongPicker(COVERS);
+  button.disabled = COVERS.length === 0;
+  button.addEventListener("click", () => {
+    const song = pickSong();
+    if (!song) return;
+    const link = document.querySelector("#randomSongLink");
+    link.href = `https://www.youtube.com/watch?v=${encodeURIComponent(song.youtubeId)}`;
+    link.setAttribute("aria-label", `Watch ${song.title} — ${song.anime} — ${song.style} on YouTube`);
+    document.querySelector("#randomSongTitle").textContent = song.title;
+    document.querySelector("#randomSongMeta").textContent = `${song.anime} · ${song.style}`;
+    const image = document.querySelector("#randomSongThumbnail");
+    image.alt = `${song.title} — ${song.anime}`;
+    setVideoThumbnail(image, song.youtubeId);
+    document.querySelector("#randomSongResult").hidden = false;
+    document.querySelector("#randomSongStatus").textContent = `This one chose you: ${song.title}, ${song.anime}, ${song.style}. Watch it on YouTube or choose another song.`;
+    button.querySelector("span").textContent = "Choose another song";
+  });
+}
+setupSongRandomizer();
+
 // Shared website visit count. Only the production site records a visit.
 async function updateVisitCounter() {
   const output = document.querySelector("#visitCount");

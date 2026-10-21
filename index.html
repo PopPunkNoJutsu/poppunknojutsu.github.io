@@ -16,9 +16,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=subscribe-visits-20261021">
+  <link rel="stylesheet" href="styles.css?v=song-randomizer-20261021">
   <script src="covers.js?v=075b25378119bbc3" defer></script>
-  <script src="script.js?v=maxres-thumbnails-20261021" defer></script>
+  <script src="script.js?v=song-randomizer-20261021" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#covers">Skip to music</a>
@@ -48,6 +48,20 @@
     <section class="catalog section-pad" id="covers" aria-labelledby="covers-title">
       <div class="wrap">
         <div class="section-heading"><div><p class="eyebrow">01 / THE MUSIC</p><h2 id="covers-title">HIT PLAY.<br><span>FEEL EVERYTHING.</span></h2></div><p>Every upload. One place.<br>Pick an anime. Pick a mood.</p></div>
+        <section class="song-randomizer" aria-labelledby="randomizer-title">
+          <div class="randomizer-intro">
+            <div><p class="eyebrow">LEAVE IT TO FATE</p><h3 id="randomizer-title">You never know what song<br>might choose you.</h3></div>
+            <button class="button randomizer-button" id="randomSongButton" type="button" aria-controls="randomSongResult" aria-describedby="randomizer-title" disabled><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h3c5 0 7 12 12 12h3M18 15l3 3-3 3M3 18h3c2 0 3.5-2 5-4.5M14 8.5C15.2 7 16.5 6 18 6h3M18 3l3 3-3 3"/></svg><span>Let a song choose you</span></button>
+          </div>
+          <div id="randomSongResult" hidden>
+            <a class="random-song" id="randomSongLink" target="_blank" rel="noopener noreferrer">
+              <div class="random-song-art"><img id="randomSongThumbnail" width="1280" height="720" alt="" decoding="async"><span aria-hidden="true">▶</span></div>
+              <div class="random-song-copy"><p class="eyebrow">THIS ONE CHOSE YOU</p><h4 id="randomSongTitle"></h4><p class="random-song-meta" id="randomSongMeta"></p><span class="random-song-watch">Watch on YouTube <span aria-hidden="true">↗</span></span></div>
+            </a>
+          </div>
+          <p class="sr-only" id="randomSongStatus" role="status" aria-live="polite" aria-atomic="true"></p>
+          <noscript><p class="randomizer-help">Enable JavaScript to let a song choose you.</p></noscript>
+        </section>
         <div class="toolbar"><div id="seriesFilters" class="filters" role="group" aria-label="Filter by anime"></div><label class="search-wrap"><span class="sr-only">Search covers</span><input id="searchInput" type="search" placeholder="Search a song or anime…" autocomplete="off"></label></div>
         <div class="catalog-meta"><div id="styleFilters" class="style-filters" role="group" aria-label="Filter by style"></div><p id="resultCount" aria-live="polite"></p></div>
         <div id="coverGrid" class="cover-grid"></div>
