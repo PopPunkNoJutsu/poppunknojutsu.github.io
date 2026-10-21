@@ -1,4 +1,38 @@
 "use strict";
+function setupThemeToggle() {
+  const button = document.querySelector("#themeToggle");
+  if (!button) return;
+  const storageKey = "ppnj:theme";
+  const system = typeof window.matchMedia === "function" ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  const validPreference = value => value === "dark" || value === "light" ? value : null;
+  let preference = null;
+  try { preference = validPreference(localStorage.getItem(storageKey)); } catch (_) { /* Storage is optional. */ }
+  const apply = theme => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#101013" : "#f5f1e9");
+    const next = theme === "dark" ? "light" : "dark";
+    button.querySelector("span").textContent = next === "dark" ? "Dark" : "Light";
+    button.setAttribute("aria-label", `Switch to ${next} mode`);
+    button.title = `Switch to ${next} mode`;
+  };
+  const applyPreference = () => apply(preference || (system?.matches ? "dark" : "light"));
+  applyPreference();
+  button.disabled = false;
+  button.addEventListener("click", () => {
+    preference = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    apply(preference);
+    try { localStorage.setItem(storageKey, preference); } catch (_) { /* The choice still works for this visit. */ }
+  });
+  system?.addEventListener?.("change", () => { if (!preference) applyPreference(); });
+  window.addEventListener("storage", event => {
+    if (event.key !== storageKey && event.key !== null) return;
+    preference = validPreference(event.newValue);
+    applyPreference();
+  });
+}
+setupThemeToggle();
+
 const grid = document.querySelector("#coverGrid");
 const searchInput = document.querySelector("#searchInput");
 const emptyState = document.querySelector("#emptyState");

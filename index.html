@@ -4,6 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101013">
+  <script id="theme-init">
+    (() => {
+      let saved = null;
+      try { saved = localStorage.getItem("ppnj:theme"); } catch (_) { /* Storage is optional. */ }
+      const systemDark = typeof window.matchMedia === "function" && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = saved === "dark" || saved === "light" ? saved : systemDark ? "dark" : "light";
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.style.colorScheme = theme;
+      document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#101013" : "#f5f1e9");
+    })();
+  </script>
   <title>PopPunk no Jutsu — No Filler. Just Killer Riffs.</title>
   <meta name="description" content="Welcome to PopPunk no Jutsu – where anime meets distorted guitars, fast drums, and way too much nostalgia. Anime openings &amp; endings reimagined as pop-punk, alt-rock, and metalcore covers both in English and Japanese,  combined with Acoustic Covers, Epic Covers, Epic orchestra Covers for Anime and Game OSTs and much more to come.">
   <meta property="og:title" content="PopPunk no Jutsu">
@@ -16,16 +27,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=song-randomizer-20261021">
+  <link rel="stylesheet" href="styles.css?v=light-dark-20261021">
   <script src="covers.js?v=075b25378119bbc3" defer></script>
-  <script src="script.js?v=song-randomizer-20261021" defer></script>
+  <script src="script.js?v=light-dark-20261021" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#covers">Skip to music</a>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="PopPunk no Jutsu home"><img src="assets/channel-logo.jpg" width="46" height="46" alt=""><span>POP PUNK <b>NO JUTSU</b></span></a>
     <nav aria-label="Main navigation"><a href="#covers">Covers</a><a href="#playlists">Playlists</a><a href="#about">About</a></nav>
-    <a class="button button-small" href="https://www.youtube.com/channel/UCroKf5_gPSKi63fmIl7OymQ?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Subscribe <span aria-hidden="true">↗</span></a>
+    <div class="header-actions">
+      <a class="button button-small" href="https://www.youtube.com/channel/UCroKf5_gPSKi63fmIl7OymQ?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Subscribe <span aria-hidden="true">↗</span></a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme" disabled><svg class="theme-icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg><span>Theme</span></button>
+    </div>
   </header>
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">

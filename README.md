@@ -4,6 +4,10 @@ Website: https://poppunknojutsu.github.io/
 
 The complete public channel catalog is searchable by song, anime and style. The initial collection contains all 81 uploads visible on the channel on October 20, 2026. The About section, Production Note and Copyright Notice reproduce the channel description on that date.
 
+## Light and dark modes
+
+The sun/moon button in the header switches the whole website between light and dark palettes. Its label names the mode it will switch to. The first visit follows the device's color preference; an explicit choice is saved in browser storage under `ppnj:theme` and restored on later visits. A small script applies the preference before the stylesheet loads to avoid flashing the wrong theme. Device preference changes are followed until the visitor makes a choice, and changes sync between open tabs. With browser storage blocked, the switch still works for the current visit. The control stays visible on phones and supports keyboard use.
+
 ## Random song picker
 
 “Let a song choose you” reveals a randomly selected song, its maximum-resolution thumbnail, and a link to watch on YouTube. It uses the complete catalog, independently of search and filters, so newly synced uploads are automatically eligible on the next page load. During a page visit it shuffles through every video before repeating, and avoids consecutive repeats across reshuffles. Reloading the page starts a fresh shuffle. The button supports keyboard use and announces each result to screen readers; playback starts only when the visitor follows the YouTube link.
