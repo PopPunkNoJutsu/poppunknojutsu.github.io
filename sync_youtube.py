@@ -3,6 +3,7 @@
 import argparse
 import copy
 from datetime import datetime, timezone
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -127,6 +128,18 @@ def save_catalog(catalog, directory):
             + "const COVERS = " + json.dumps(videos, ensure_ascii=False, indent=2) + ";\n"
         ),
     }
+    page = directory / "index.html"
+    if page.exists():
+        # A changed catalog gets a new URL so returning browsers do not reuse old songs.
+        version = hashlib.sha256(outputs["covers.js"].encode("utf-8")).hexdigest()[:16]
+        source = page.read_text(encoding="utf-8")
+        updated, count = re.subn(
+            r'(<script\s+src=")covers\.js(?:\?[^"\s]*)?("\s+defer></script>)',
+            lambda match: match[1] + f"covers.js?v={version}" + match[2], source,
+        )
+        if count != 1:
+            raise ValueError("Expected exactly one catalog script reference in the page.")
+        outputs["index.html"] = updated
     for name, content in outputs.items():
         destination = directory / name
         if destination.exists() and destination.read_text(encoding="utf-8") == content:

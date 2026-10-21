@@ -63,6 +63,22 @@ class SyncTests(unittest.TestCase):
             self.assertEqual(saved, catalog)
             self.assertIn("const COVERS =", (Path(folder) / "covers.js").read_text(encoding="utf-8"))
 
+    def test_catalog_url_changes_only_when_catalog_content_changes(self):
+        catalog = {"channelId": CHANNEL_ID, "lastCheckedDate": "2026-10-20", "videos": [describe_video("First", "Abc123_-xyz")]}
+        with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent) as folder:
+            directory = Path(folder)
+            page = directory / "index.html"
+            page.write_text('<script src="covers.js" defer></script><p>Keep this message</p>', encoding="utf-8")
+            save_catalog(catalog, directory)
+            first = page.read_text(encoding="utf-8")
+            self.assertIn('covers.js?v=', first)
+            save_catalog(catalog, directory)
+            self.assertEqual(page.read_text(encoding="utf-8"), first)
+            catalog["videos"].append(describe_video("Second", "New123_-xyz"))
+            save_catalog(catalog, directory)
+            self.assertNotEqual(page.read_text(encoding="utf-8"), first)
+            self.assertIn('<p>Keep this message</p>', page.read_text(encoding="utf-8"))
+
 
 if __name__ == "__main__":
     unittest.main()
