@@ -4,23 +4,26 @@ function setupThemeToggle() {
   if (!button) return;
   const storageKey = "ppnj:theme";
   const system = typeof window.matchMedia === "function" ? window.matchMedia("(prefers-color-scheme: dark)") : null;
-  const validPreference = value => value === "dark" || value === "light" ? value : null;
+  const modes = ["dark", "light", "original"];
+  const labels = {dark: "Dark", light: "Light", original: "Original"};
+  const nextMode = value => modes[(modes.indexOf(value) + 1) % modes.length];
+  const validPreference = value => modes.includes(value) ? value : null;
   let preference = null;
   try { preference = validPreference(localStorage.getItem(storageKey)); } catch (_) { /* Storage is optional. */ }
   const apply = theme => {
     document.documentElement.dataset.theme = theme;
-    document.documentElement.style.colorScheme = theme;
-    document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#101013" : "#f5f1e9");
-    const next = theme === "dark" ? "light" : "dark";
-    button.querySelector("span").textContent = next === "dark" ? "Dark" : "Light";
+    document.documentElement.style.colorScheme = theme === "light" ? "light" : "dark";
+    document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "light" ? "#f5f1e9" : "#101013");
+    const next = nextMode(theme);
+    button.querySelector("span").textContent = labels[next];
     button.setAttribute("aria-label", `Switch to ${next} mode`);
-    button.title = `Switch to ${next} mode`;
+    button.title = `${labels[theme]} mode. Switch to ${labels[next]}. Modes: Dark, Light, Original.`;
   };
   const applyPreference = () => apply(preference || (system?.matches ? "dark" : "light"));
   applyPreference();
   button.disabled = false;
   button.addEventListener("click", () => {
-    preference = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    preference = nextMode(document.documentElement.dataset.theme);
     apply(preference);
     try { localStorage.setItem(storageKey, preference); } catch (_) { /* The choice still works for this visit. */ }
   });

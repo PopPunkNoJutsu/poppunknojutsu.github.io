@@ -9,10 +9,10 @@
       let saved = null;
       try { saved = localStorage.getItem("ppnj:theme"); } catch (_) { /* Storage is optional. */ }
       const systemDark = typeof window.matchMedia === "function" && window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const theme = saved === "dark" || saved === "light" ? saved : systemDark ? "dark" : "light";
+      const theme = ["dark", "light", "original"].includes(saved) ? saved : systemDark ? "dark" : "light";
       document.documentElement.dataset.theme = theme;
-      document.documentElement.style.colorScheme = theme;
-      document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#101013" : "#f5f1e9");
+      document.documentElement.style.colorScheme = theme === "light" ? "light" : "dark";
+      document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "light" ? "#f5f1e9" : "#101013");
     })();
   </script>
   <title>PopPunk no Jutsu — No Filler. Just Killer Riffs.</title>
@@ -27,9 +27,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=light-dark-20261021">
+  <link rel="stylesheet" href="styles.css?v=three-modes-20261021">
   <script src="covers.js?v=075b25378119bbc3" defer></script>
-  <script src="script.js?v=light-dark-20261021" defer></script>
+  <script src="script.js?v=three-modes-20261021" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#covers">Skip to music</a>
@@ -38,7 +38,7 @@
     <nav aria-label="Main navigation"><a href="#covers">Covers</a><a href="#playlists">Playlists</a><a href="#about">About</a></nav>
     <div class="header-actions">
       <a class="button button-small" href="https://www.youtube.com/channel/UCroKf5_gPSKi63fmIl7OymQ?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Subscribe <span aria-hidden="true">↗</span></a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme" disabled><svg class="theme-icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg><span>Theme</span></button>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme" disabled><svg class="theme-icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg><svg class="theme-icon-original" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor" stroke="none"/></svg><span>Theme</span></button>
     </div>
   </header>
   <main id="top">
