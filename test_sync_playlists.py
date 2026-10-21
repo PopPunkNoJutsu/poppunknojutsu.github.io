@@ -77,6 +77,48 @@ class PlaylistTests(unittest.TestCase):
             self.assertEqual(json.loads((directory / 'playlists.json').read_text(encoding='utf-8')), catalog())
             self.assertEqual((directory / 'index.html').read_text(encoding='utf-8').count('class="playlist-card"'), 2)
 
+    def test_artwork_survives_refresh_and_new_playlists_get_matching_covers(self):
+        with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent) as folder:
+            directory = Path(folder)
+            source = '<header>Keep the theme switch</header>' + START + END + '<footer>Keep subscribe</footer>'
+            (directory / 'index.html').write_text(source, encoding='utf-8')
+            videos = [
+                {"youtubeId": "jg0U0WIeF0g", "series": "NARUTO", "style": "English covers", "anime": "Naruto Shippuden OP 3"},
+                {"youtubeId": "m30T_qdpP0g", "series": "NARUTO", "style": "Acoustic", "anime": "Naruto Shippuden OP 8"},
+            ]
+            (directory / 'catalog.json').write_text(json.dumps({"channelId": CHANNEL_ID, "videos": videos}), encoding='utf-8')
+            incoming = [playlist("PLnew12345678", "NARUTO ACOUSTIC"), playlist()]
+            updated = merge_playlists(catalog(), incoming)
+            save_playlists(updated, directory)
+            rendered = (directory / 'index.html').read_text(encoding='utf-8')
+            self.assertIn('https://i.ytimg.com/vi/jg0U0WIeF0g/maxresdefault.jpg', rendered)
+            self.assertIn('https://i.ytimg.com/vi/m30T_qdpP0g/maxresdefault.jpg', rendered)
+            self.assertEqual(rendered.count('class="playlist-description"'), 3)
+            self.assertEqual(rendered.count('class="playlist-art"'), 3)
+            self.assertLess(rendered.index(PRIMARY_PLAYLIST_ID), rendered.index('PLnew12345678'))
+            self.assertTrue(rendered.startswith('<header>Keep the theme switch</header>' + START))
+            self.assertTrue(rendered.endswith(END + '<footer>Keep subscribe</footer>'))
+            save_playlists(merge_playlists(updated, incoming), directory)
+            self.assertEqual(rendered, (directory / 'index.html').read_text(encoding='utf-8'))
+
+    def test_unmatched_playlists_get_brand_art_and_invalid_video_ids_are_ignored(self):
+        data = {"playlists": [playlist("PLnew12345678", "A brand new collection")]}
+        rendered = render_playlists(data, START + END, [{"youtubeId": '\"><script>bad</script>', "series": "OTHER"}])
+        self.assertIn('src="assets/channel-banner.jpg"', rendered)
+        self.assertNotIn('<script>', rendered)
+        self.assertNotIn('data-video-id=', rendered)
+        self.assertIn('class="playlist-description"', rendered)
+
+    def test_artwork_from_another_channels_catalog_cannot_be_published(self):
+        with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent) as folder:
+            directory = Path(folder)
+            source = START + END
+            (directory / 'index.html').write_text(source, encoding='utf-8')
+            (directory / 'catalog.json').write_text(json.dumps({"channelId": "wrong", "videos": []}), encoding='utf-8')
+            with self.assertRaises(ValueError):
+                save_playlists(catalog(), directory)
+            self.assertEqual((directory / 'index.html').read_text(encoding='utf-8'), source)
+
 
 if __name__ == '__main__':
     unittest.main()

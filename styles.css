@@ -31,3 +31,22 @@
 
 /* Original uses the unchanged base palette above, including its light catalog. */
 :root[data-theme="original"] .catalog{color-scheme:light}
+
+/* Illustrated playlist sleeves retain the shared theme and pink interaction colors. */
+.playlist-card{padding:0;min-height:0;isolation:isolate}
+.playlist-card::after{display:none}
+.playlist-art{display:block;position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--ink);border-bottom:1px solid var(--border)}
+.playlist-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#10101320,transparent 45%,#10101345);pointer-events:none}
+.playlist-art>img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.playlist-art .playlist-number{position:absolute;top:14px;left:14px;z-index:1;display:grid;place-items:center;min-width:35px;height:31px;padding:0 8px;margin:0;background:var(--ink);color:var(--paper);border:1px solid #f5f1e960;font-size:16px;letter-spacing:.06em}
+.playlist-play{position:absolute;right:14px;bottom:14px;z-index:1;width:42px;height:42px;display:grid;place-items:center;padding-left:3px;border:1px solid #f5f1e999;border-radius:50%;background:#101013d9;color:var(--paper);font-size:17px;transition:background .2s,color .2s,border-color .2s}
+.playlist-body{display:flex;flex-direction:column;flex:1;padding:24px}
+.playlist-body .playlist-title{font-size:38px;line-height:.96;overflow-wrap:anywhere}
+.playlist-body .playlist-title span{font-size:18px;line-height:1.1;letter-spacing:.025em;margin-top:8px}
+.playlist-description{display:block;font-size:12px;line-height:1.65;opacity:.85;margin:16px 0 23px;max-width:33ch}
+.playlist-body .playlist-bottom{margin-top:auto;padding-top:14px;font-size:11px;letter-spacing:.015em}
+.playlist-card:is(:hover,:focus-visible,:active) .playlist-art>img{transform:scale(1.045)}
+.playlist-card:is(:hover,:focus-visible,:active) .playlist-play{background:var(--pink);border-color:var(--pink);color:var(--ink)}
+.playlist-card:is(:hover,:focus-visible,:active) .playlist-description{opacity:1}
+@media(min-width:741px) and (max-width:1000px){.playlist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:740px){.playlist-body{padding:22px}.playlist-body .playlist-title{font-size:38px}.playlist-description{max-width:45ch}.playlist-art .playlist-number{top:12px;left:12px}}

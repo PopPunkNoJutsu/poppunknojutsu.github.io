@@ -16,6 +16,18 @@ PRIMARY_PLAYLIST_ID = "PLXM9R4S5hc7wzOnasLTO2ouKTpyLMhPzM"
 PLAYLIST_ID = re.compile(r"^PL[A-Za-z0-9_-]{8,80}$")
 START = "<!-- channel-playlists:start -->"
 END = "<!-- channel-playlists:end -->"
+VIDEO_ID = re.compile(r"^[A-Za-z0-9_-]{11}$")
+# Representative artwork from the channel's own published covers.
+PLAYLIST_PRESENTATION = {
+    PRIMARY_PLAYLIST_ID: ("elv_X95JL2s", "Every mood. Every riff. Your next favorite is in here."),
+    "PLFhfmTNiH8Xk": ("qBCZv6YjbcI", "Go beyond your limits. Dragon Ball anthems, reimagined."),
+    "PLKU6UnEzQKJQ": ("jg0U0WIeF0g", "Naruto nostalgia, turned all the way up."),
+    "PLEFYXxnAimMY": ("wPWuA4Dzonk", "Soul Reaper energy. Familiar anthems, a new voice."),
+    "PLffHg5_PW3PY": ("WckpvKtTypY", "Stay for the credits. Bleach endings that hit home."),
+    "PLdqjayG3bq2U": ("ZRSMHHV9gd0", "Big scenes. Bigger feelings. Step back into the soundtrack."),
+    "PLAcaGRK69mik": ("tJSpWKxx7pc", "Acoustic arrangements. All the anime feels."),
+    "PLBe0yam0zKug": ("LnBxH_aBpKg", "One opening leads to another. Relive the Bleach journey."),
+}
 
 
 def validate_playlists(items):
@@ -82,7 +94,32 @@ def title_parts(title):
     return title, ""
 
 
-def render_playlists(catalog, source):
+def playlist_presentation(item, videos):
+    available = [video for video in videos if isinstance(video, dict)
+                 and VIDEO_ID.fullmatch(str(video.get("youtubeId", "")))]
+    curated, description = PLAYLIST_PRESENTATION.get(
+        item["id"], (None, "A fresh mix from PopPunk no Jutsu. Find your next favorite."))
+    if curated and any(video["youtubeId"] == curated for video in available):
+        return curated, description
+    # New playlists get relevant channel artwork without downloading any media.
+    title = item["title"].upper()
+    series = next((name for name in sorted({video.get("series", "") for video in available}, key=len, reverse=True)
+                   if name and name != "OTHER" and name in title), None)
+    style = next((style for word, style in (("ACOUSTIC", "Acoustic"), ("ORCHESTRAL", "Orchestral"),
+                                           ("ENGLISH", "English covers")) if word in title), None)
+    kind = "ED" if "ENDING" in title else "OP" if "OPENING" in title else "OST" if re.search(r"\bOST\b", title) else None
+    if series or style or kind:
+        for video in available:
+            context = f'{video.get("anime", "")} {video.get("rawTitle", "")}'.upper()
+            if ((not series or video.get("series") == series)
+                    and (not style or video.get("style") == style)
+                    and (not kind or re.search(rf"\b{kind}\b", context))):
+                return video["youtubeId"], description
+    # A branded image is preferable to unrelated music when no match is known.
+    return None, description
+
+
+def render_playlists(catalog, source, videos=()):
     validate_playlists(catalog["playlists"])
     if source.count(START) != 1 or source.count(END) != 1:
         raise ValueError("The page must have exactly one playlist section marker pair.")
@@ -94,12 +131,20 @@ def render_playlists(catalog, source):
     for number, item in enumerate(ordered, 1):
         title, subtitle = title_parts(item["title"])
         secondary = f"<span>{escape(subtitle)}</span>" if subtitle else ""
+        video_id, description = playlist_presentation(item, videos)
+        thumbnail = f"https://i.ytimg.com/vi/{video_id}/maxresdefault.jpg" if video_id else "assets/channel-banner.jpg"
+        video_attribute = f' data-video-id="{video_id}"' if video_id else ""
         cards.append(
             f'          <a class="playlist-card" href="https://www.youtube.com/playlist?list={item["id"]}" '
             f'target="_blank" rel="noopener noreferrer" aria-label="{escape(item["title"], quote=True)}">'
+            f'<span class="playlist-art"><img src="{thumbnail}"{video_attribute} alt="" '
+            'width="1280" height="720" loading="lazy" decoding="async">'
             f'<span class="playlist-number">{number:02d}</span>'
+            '<span class="playlist-play" aria-hidden="true">▶</span></span>'
+            '<span class="playlist-body">'
             f'<span class="playlist-title">{escape(title)}{secondary}</span>'
-            '<span class="playlist-bottom">Play playlist <b aria-hidden="true">↗</b></span></a>'
+            f'<span class="playlist-description">{escape(description)}</span>'
+            '<span class="playlist-bottom">Play playlist <b aria-hidden="true">↗</b></span></span></a>'
         )
     return source[:start + len(START)] + "\n" + "\n".join(cards) + "\n          " + source[end:]
 
@@ -109,7 +154,11 @@ def save_playlists(catalog, directory):
         raise ValueError("Saved playlist channel mismatch.")
     source = (directory / "index.html").read_text(encoding="utf-8")
     # Validate and render before either file is touched.
-    rendered = render_playlists(catalog, source)
+    video_path = directory / "catalog.json"
+    video_catalog = json.loads(video_path.read_text(encoding="utf-8")) if video_path.exists() else {"channelId": CHANNEL_ID, "videos": []}
+    if video_catalog.get("channelId") != CHANNEL_ID:
+        raise ValueError("Playlist artwork channel mismatch.")
+    rendered = render_playlists(catalog, source, video_catalog.get("videos", []))
     outputs = {"playlists.json": json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", "index.html": rendered}
     for name, content in outputs.items():
         destination = directory / name

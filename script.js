@@ -66,6 +66,10 @@ function setVideoThumbnail(image, videoId) {
   };
   image.src = `${base}${sizes[size]}.jpg`;
 }
+// Playlist artwork uses the same high-resolution loader as the song catalog.
+document.querySelectorAll('.playlist-art img[data-video-id]').forEach(image => {
+  setVideoThumbnail(image, image.dataset.videoId);
+});
 function renderControls() {
   for (const [selector, options, active, setActive] of [
     ["#seriesFilters", seriesOptions, activeSeries, value => {activeSeries=value;}],

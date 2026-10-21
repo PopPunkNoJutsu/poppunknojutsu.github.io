@@ -4,6 +4,10 @@ Website: https://poppunknojutsu.github.io/
 
 The complete public channel catalog is searchable by song, anime and style. The initial collection contains all 81 uploads visible on the channel on October 20, 2026. The About section, Production Note and Copyright Notice reproduce the channel description on that date.
 
+## Playlist artwork
+
+The “One more song” playlist cards use representative artwork from the channel's own published video thumbnails, a short description, and the same pink hover/focus/press highlight in all three themes. The full playlist stays first. The hourly playlist renderer keeps this design intact. Existing playlists have curated covers; new playlists select an appropriate channel cover by anime, style, opening/ending or OST when possible, with channel artwork as a fallback. Images are loaded lazily at maximum resolution with the same lower-resolution fallback as video cards. Artwork represents the playlist's theme; it is not a live list of playlist membership. Curated choices and copy are in `PLAYLIST_PRESENTATION` in `sync_playlists.py`.
+
 ## Dark, light and original modes
 
 The header button cycles through **Dark → Light → Original → Dark**. Its label and icon show the current mode: moon for Dark, sun for Light, and half-circle for Original. Its tooltip and accessible label also explain which mode the next click will select. Original restores the site's original mixed palette: dark header, hero, playlists and About section; cream song catalog; dark randomizer; and bright pink closing section. Light and dark remain full-site palettes. The first visit follows the device's color preference; an explicit choice (including Original) is saved in browser storage under `ppnj:theme` and restored on later visits. A small script applies the preference before the stylesheet loads to avoid flashing the wrong theme. Device preference changes are followed until the visitor makes a choice, and changes sync between open tabs. With browser storage blocked, the switch still works for the current visit. The control stays visible on phones and supports keyboard use.
