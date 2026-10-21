@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-21"};
 const COVERS = [
   {
+    "youtubeId": "6T7Eq11klO8",
+    "rawTitle": "「Namikaze Satellite | Wind and Waves Satellite」English Ver - Naruto OP 7 | PopPunk no Jutsu",
+    "title": "Namikaze Satellite | Wind and Waves Satellite",
+    "anime": "Naruto OP 7",
+    "series": "NARUTO",
+    "style": "English covers",
+    "publishedAt": "2026-10-21T21:00:13+00:00"
+  },
+  {
     "youtubeId": "elv_X95JL2s",
     "rawTitle": "「Number One」Epic Orchestral ver - BLEACH Ichigo Theme | PopPunk no Jutsu",
     "title": "Number One",
