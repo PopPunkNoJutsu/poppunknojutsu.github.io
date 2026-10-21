@@ -19,7 +19,9 @@ The GitHub Actions workflow **Update channel and publish website** checks YouTub
 
 The playlist checker uses the pinned `yt-dlp==2026.8.19` package to read public channel metadata, including pagination. It downloads no audio or video. Song and playlist checks run independently; a temporary failure in either check preserves that saved collection. The run summary reports both results. If YouTube changes its playlist page format, the pinned package may need updating. Missing playlists are retained to avoid removing cards after a partial response; remove deleted or private playlists from `playlists.json` manually.
 
-The feed contains only the latest 15 uploads. A long interruption that spans more than 15 uploads needs a catalog backfill. This process adds public uploads; it does not automatically remove deleted/private older videos. Channel-description changes can be copied into the website separately.
+The feed contains only the latest 15 uploads. When it is unavailable, the checker reads the newest 50 entries from the public Videos tab using the same metadata-only package as the playlist checker. Existing history is retained and channel order is used without inventing publication dates. If both sources fail, the last saved catalog remains live. A long interruption spanning more uploads than these sources return needs a catalog backfill. This process adds public uploads; it does not automatically remove deleted/private older videos. Channel-description changes can be copied into the website separately.
+
+Each changed catalog receives a content-specific script URL so returning browsers load the new song list after the next deployment instead of reusing the previous cached file.
 
 The workflow saves a date of its last successful check daily, even when there are no new uploads, keeping a record of successful checks. GitHub can disable schedules after prolonged repository inactivity; check Actions if updates ever stop.
 

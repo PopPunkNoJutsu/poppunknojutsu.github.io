@@ -2,7 +2,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from sync_youtube import CHANNEL_ID, describe_video, merge_feed, parse_feed, save_catalog
+from sync_youtube import (CHANNEL_ID, describe_video, merge_feed, parse_feed, save_catalog,
+                          parse_channel_uploads, merge_channel_uploads)
 
 
 def feed(entries, channel=CHANNEL_ID):
@@ -20,6 +21,29 @@ def entry(video_id, title="「New &amp; Loud」Acoustic English Ver - Naruto OP 
 
 
 class SyncTests(unittest.TestCase):
+    def test_channel_backup_preserves_history_dates_and_newest_first_order(self):
+        old = [describe_video(f"Old {i}", f"old{i:08}") for i in range(81)]
+        old[0]["publishedAt"] = "2026-10-20T12:00:00+00:00"
+        catalog = {"channelId": CHANNEL_ID, "videos": old, "lastCheckedDate": "2026-10-20"}
+        incoming = parse_channel_uploads({"channel_id": CHANNEL_ID, "entries": [
+            {"id": "New123_-xyz", "title": "Newest upload"},
+            {"id": old[0]["youtubeId"], "title": "Renamed older upload"}]})
+        merged = merge_channel_uploads(catalog, incoming)
+        self.assertEqual(len(merged["videos"]), 82)
+        self.assertEqual(merged["videos"][0]["youtubeId"], "New123_-xyz")
+        self.assertNotIn("publishedAt", merged["videos"][0])
+        self.assertEqual(merged["videos"][1]["publishedAt"], old[0]["publishedAt"])
+        self.assertEqual(merged["videos"][1]["title"], "Renamed older upload")
+        self.assertEqual(merge_channel_uploads(merged, incoming), merged)
+        self.assertEqual(len(catalog["videos"]), 81)
+
+    def test_channel_backup_rejects_incomplete_or_wrong_channel_data(self):
+        for data in (None, {"id": "wrong", "entries": []}, {"id": CHANNEL_ID, "entries": []},
+                     {"id": CHANNEL_ID, "entries": [None]},
+                     {"id": CHANNEL_ID, "entries": [{"id": "bad", "title": "Invalid"}]}):
+            with self.subTest(data=data), self.assertRaises(ValueError):
+                parse_channel_uploads(data)
+
     def test_parses_real_feed_id_format_and_xml_entities(self):
         videos = parse_feed(feed(entry("Abc123_-xyz"), CHANNEL_ID[2:]))
         self.assertEqual(videos[0]["title"], "New & Loud")

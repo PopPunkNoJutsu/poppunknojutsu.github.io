@@ -161,21 +161,73 @@ def fetch_feed():
             time.sleep(5 * (attempt + 1))
 
 
+def parse_channel_uploads(data):
+    if not isinstance(data, dict) or (data.get("channel_id") or data.get("id")) != CHANNEL_ID:
+        raise ValueError("Upload response belongs to a different channel.")
+    if not isinstance(data.get("entries"), list) or not data["entries"]:
+        raise ValueError("The channel returned no uploads; the saved catalog will be preserved.")
+    videos, seen = [], set()
+    for entry in data["entries"]:
+        if not isinstance(entry, dict) or not isinstance(entry.get("title"), str):
+            raise ValueError("Incomplete channel upload response.")
+        video = describe_video(entry["title"], entry.get("id", ""))
+        if video["youtubeId"] not in seen:
+            videos.append(video)
+            seen.add(video["youtubeId"])
+    return videos
+
+
+def merge_channel_uploads(catalog, incoming):
+    """The public Videos tab supplies newest-first order but not reliable dates."""
+    if not incoming or catalog.get("channelId") != CHANNEL_ID:
+        raise ValueError("Invalid channel upload catalog.")
+    result = copy.deepcopy(catalog)
+    existing = {video["youtubeId"]: video for video in result["videos"]}
+    if len(existing) != len(result["videos"]):
+        raise ValueError("Duplicate saved video IDs.")
+    ordered, seen = [], set()
+    for video in incoming:
+        video_id = video["youtubeId"]
+        if video_id in seen or not VIDEO_ID.fullmatch(video_id):
+            raise ValueError("Invalid or duplicate incoming video IDs.")
+        saved = copy.deepcopy(existing.get(video_id, {}))
+        saved.update(video)
+        ordered.append(saved)
+        seen.add(video_id)
+    result["videos"] = ordered + [video for video in result["videos"] if video["youtubeId"] not in seen]
+    result["lastCheckedDate"] = datetime.now(timezone.utc).date().isoformat()
+    return result
+
+
+def fetch_channel_uploads():
+    from yt_dlp import YoutubeDL
+    options = {"extract_flat": True, "skip_download": True, "quiet": True,
+               "playlistend": 50, "socket_timeout": 30, "retries": 3,
+               "extractor_retries": 3, "ignoreerrors": False, "cachedir": False}
+    with YoutubeDL(options) as youtube:
+        return youtube.extract_info(f"https://www.youtube.com/channel/{CHANNEL_ID}/videos", download=False)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--directory", type=Path, default=Path(__file__).resolve().parent)
-    parser.add_argument("--feed-file", type=Path, help="Use a saved feed for an offline check.")
-    parser.add_argument("--render-only", action="store_true")
+    source = parser.add_mutually_exclusive_group()
+    source.add_argument("--feed-file", type=Path, help="Use a saved feed for an offline check.")
+    source.add_argument("--render-only", action="store_true")
+    source.add_argument("--channel-page", action="store_true", help="Use the public Videos tab if the feed is unavailable.")
     args = parser.parse_args()
     catalog = json.loads((args.directory / "catalog.json").read_text(encoding="utf-8"))
     if catalog["channelId"] != CHANNEL_ID:
         raise ValueError("Catalog channel mismatch.")
     if not args.render_only:
-        xml = args.feed_file.read_bytes() if args.feed_file else fetch_feed()
-        if len(xml) > 2_000_000:
-            raise ValueError("Unexpectedly large feed.")
         old_count = len(catalog["videos"])
-        catalog = merge_feed(catalog, parse_feed(xml))
+        if args.channel_page:
+            catalog = merge_channel_uploads(catalog, parse_channel_uploads(fetch_channel_uploads()))
+        else:
+            xml = args.feed_file.read_bytes() if args.feed_file else fetch_feed()
+            if len(xml) > 2_000_000:
+                raise ValueError("Unexpectedly large feed.")
+            catalog = merge_feed(catalog, parse_feed(xml))
         print(f"Checked YouTube: {len(catalog['videos'])} uploads; {len(catalog['videos']) - old_count} new.")
     save_catalog(catalog, args.directory)
 
