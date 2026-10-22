@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-22"};
 const COVERS = [
   {
+    "youtubeId": "j-d_5AwSdKw",
+    "rawTitle": "「Jaka Jaan」English Ver - Dragon Ball DAIMA OP | PopPunk no Jutsu",
+    "title": "Jaka Jaan",
+    "anime": "Dragon Ball DAIMA OP",
+    "series": "DRAGON BALL",
+    "style": "English covers",
+    "publishedAt": "2026-10-22T21:00:36+00:00"
+  },
+  {
     "youtubeId": "6T7Eq11klO8",
     "rawTitle": "「Namikaze Satellite | Wind and Waves Satellite」English Ver - Naruto OP 7 | PopPunk no Jutsu",
     "title": "Namikaze Satellite | Wind and Waves Satellite",
