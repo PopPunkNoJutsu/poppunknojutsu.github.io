@@ -2,7 +2,8 @@ name: Update channel and publish website
 
 on:
   schedule:
-    - cron: '17 * * * *'
+    # Request a check every 15 minutes; GitHub may delay or skip scheduled runs.
+    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
@@ -46,7 +47,7 @@ jobs:
       - name: Keep the saved catalog if both upload sources are unavailable
         if: steps.youtube.outcome == 'failure' && steps.upload_fallback.outcome != 'success'
         run: |
-          echo "::warning::YouTube uploads could not be checked. The saved catalog is preserved; the next hourly run will retry."
+          echo "::warning::YouTube uploads could not be checked. The saved catalog is preserved; the next scheduled run will retry."
           python3 sync_youtube.py --render-only
       - name: Check YouTube for new playlists
         id: playlists
@@ -56,7 +57,7 @@ jobs:
       - name: Keep saved playlists if YouTube is temporarily unavailable
         if: steps.playlists.outcome == 'failure'
         run: |
-          echo "::warning::YouTube playlists could not be checked. Saved playlists are preserved; the next hourly run will retry."
+          echo "::warning::YouTube playlists could not be checked. Saved playlists are preserved; the next scheduled run will retry."
           python3 sync_playlists.py --render-only
       - name: Save catalog changes
         run: |
