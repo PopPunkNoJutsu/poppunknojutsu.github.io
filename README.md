@@ -6,7 +6,7 @@ The complete public channel catalog is searchable by song, anime and style. The 
 
 ## Playlist artwork
 
-The “One more song” playlist cards use representative artwork from the channel's own published video thumbnails, a short description, and the same pink hover/focus/press highlight in all three themes. The full playlist stays first. The hourly playlist renderer keeps this design intact. Existing playlists have curated covers; new playlists select an appropriate channel cover by anime, style, opening/ending or OST when possible, with channel artwork as a fallback. Images are loaded lazily at maximum resolution with the same lower-resolution fallback as video cards. Artwork represents the playlist's theme; it is not a live list of playlist membership. Curated choices and copy are in `PLAYLIST_PRESENTATION` in `sync_playlists.py`.
+The “One more song” playlist cards use representative artwork from the channel's own published video thumbnails, a short description, and the same pink hover/focus/press highlight in all three themes. The full playlist stays first. The scheduled playlist renderer keeps this design intact. Existing playlists have curated covers; new playlists select an appropriate channel cover by anime, style, opening/ending or OST when possible, with channel artwork as a fallback. Images are loaded lazily at maximum resolution with the same lower-resolution fallback as video cards. Artwork represents the playlist's theme; it is not a live list of playlist membership. Curated choices and copy are in `PLAYLIST_PRESENTATION` in `sync_playlists.py`.
 
 ## Dark, light and original modes
 
@@ -20,7 +20,7 @@ The header button cycles through **Dark → Light → Original → Dark**. Its l
 
 All video cards and the Latest Drop request each video's `maxresdefault.jpg` thumbnail (normally 1280 × 720). The shared image loader automatically applies to existing uploads and future catalog additions. If YouTube has no maximum-resolution image, it tries `sddefault.jpg`, then `hqdefault.jpg`, detecting both loading errors and tiny placeholder images. Catalog images remain lazy-loaded to avoid downloading the entire collection at once.
 
-The GitHub Actions workflow **Update channel and publish website** checks YouTube's public upload feed and channel playlists hourly, at minute 17. GitHub may delay scheduled runs, so updates are not instant.
+The GitHub Actions workflow **Update channel and publish website** requests checks of YouTube's public upload feed and channel playlists every 15 minutes, at minutes 7, 22, 37 and 52. GitHub may delay or skip scheduled runs, so this is a requested cadence, not a guaranteed 15-minute update window. The schedule uses UTC; the same minute marks apply in Romania.
 
 - New public uploads are added without editing website files.
 - New public channel playlists are added to “One more song,” and existing titles are refreshed. The PopPunk no Jutsu full playlist always stays first.
@@ -28,7 +28,7 @@ The GitHub Actions workflow **Update channel and publish website** checks YouTub
 - Titles, thumbnails and YouTube links come from the channel.
 - Anime and style labels are inferred from the video title. An unfamiliar series is grouped under Other.
 - Older uploads remain saved when they leave YouTube's recent-upload feed.
-- If YouTube is unavailable or returns invalid data, the saved catalog remains intact and the next hourly run retries.
+- If YouTube is unavailable or returns invalid data, the saved catalog remains intact and the next scheduled run retries.
 - No YouTube API key, password or paid service is needed.
 
 The playlist checker uses the pinned `yt-dlp==2026.8.19` package to read public channel metadata, including pagination. It downloads no audio or video. Song and playlist checks run independently; a temporary failure in either check preserves that saved collection. The run summary reports both results. If YouTube changes its playlist page format, the pinned package may need updating. Missing playlists are retained to avoid removing cards after a partial response; remove deleted or private playlists from `playlists.json` manually.
@@ -51,7 +51,7 @@ The header, hero and closing section link to the channel's YouTube subscription 
 
 The footer shows a shared, approximate visit count using [CountAPI](https://countapi.mileshilliard.com/), starting on 21 October 2026. It does not include earlier traffic and is not a count of unique people. Browser storage avoids counting repeat loads within 30 minutes; when supported, a browser lock coordinates simultaneous tabs. If storage is blocked, each load can count. Only the production hostname records visits; previews read the number without incrementing it.
 
-The counter request uses a fixed public key, omits cookies and credentials, and sends no referrer or visitor identifier. Like any external endpoint, the service receives ordinary network request metadata. It is a free public counter, so figures can include bots, testing and deliberate inflation; it is not audited analytics. If the service is unavailable, the website shows a dash rather than inventing a count. The counter is stored independently of GitHub Pages and is not reset by the hourly song or playlist updates. Keep the counter key in `script.js` unchanged to preserve the total.
+The counter request uses a fixed public key, omits cookies and credentials, and sends no referrer or visitor identifier. Like any external endpoint, the service receives ordinary network request metadata. It is a free public counter, so figures can include bots, testing and deliberate inflation; it is not audited analytics. If the service is unavailable, the website shows a dash rather than inventing a count. The counter is stored independently of GitHub Pages and is not reset by scheduled song or playlist updates. Keep the counter key in `script.js` unchanged to preserve the total.
 
 ## Files
 
@@ -65,7 +65,7 @@ The counter request uses a fixed public key, omits cookies and credentials, and 
 - `playlists.json`: retained public playlist catalog
 - `sync_playlists.py`: playlist checks, ordering and HTML card generation
 - `test_sync_playlists.py`: playlist validation, preservation and rendering tests
-- `.github/workflows/update-site.yml`: hourly update and publishing workflow
+- `.github/workflows/update-site.yml`: scheduled update and publishing workflow
 - `assets/`: existing channel artwork
 
 To correct a catalog label manually, edit `catalog.json` and run `python sync_youtube.py --render-only`. For entries still in the recent feed, the next sync derives labels again from the title.
