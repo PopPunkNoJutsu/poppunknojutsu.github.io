@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-23"};
 const COVERS = [
   {
+    "youtubeId": "F-MWgwuWi2E",
+    "rawTitle": "「ONOGAMI」Epic Orchestral Ver - Dragon Ball Super: Beerus OP (Re:Make) | PopPunk no Jutsu",
+    "title": "ONOGAMI (Re:Make)",
+    "anime": "Dragon Ball Super: Beerus OP (Re:Make)",
+    "series": "DRAGON BALL",
+    "style": "Orchestral",
+    "publishedAt": "2026-10-23T21:00:28+00:00"
+  },
+  {
     "youtubeId": "j-d_5AwSdKw",
     "rawTitle": "「Jaka Jaan」English Ver - Dragon Ball DAIMA OP | PopPunk no Jutsu",
     "title": "Jaka Jaan",
