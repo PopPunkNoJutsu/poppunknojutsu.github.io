@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-25"};
 const COVERS = [
   {
+    "youtubeId": "wiuTRj61LaQ",
+    "rawTitle": "「Vegeta Enraged」Epic Orchestral ver- Dragon Ball Super: Beerus OST - Episode 3 | PopPunk no Jutsu",
+    "title": "Vegeta Enraged",
+    "anime": "Dragon Ball Super: Beerus OST - Episode 3",
+    "series": "DRAGON BALL",
+    "style": "Orchestral",
+    "publishedAt": "2026-10-25T15:56:08+00:00"
+  },
+  {
     "youtubeId": "F-MWgwuWi2E",
     "rawTitle": "「ONOGAMI」Epic Orchestral Ver - Dragon Ball Super: Beerus OP (Re:Make) | PopPunk no Jutsu",
     "title": "ONOGAMI (Re:Make)",
