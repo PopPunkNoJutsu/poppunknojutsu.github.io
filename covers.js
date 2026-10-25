@@ -12,8 +12,8 @@ const COVERS = [
   },
   {
     "youtubeId": "wiuTRj61LaQ",
-    "rawTitle": "「Vegeta's That's my Bulma!」Orchestral ver - Dragon Ball Super: Beerus OST - EP 3 | PopPunk no Jutsu",
-    "title": "Vegeta's That's my Bulma!",
+    "rawTitle": "「Vegeta Enraged」Epic Orchestral ver - Dragon Ball Super: Beerus OST - EP 3 | PopPunk no Jutsu",
+    "title": "Vegeta Enraged",
     "anime": "Dragon Ball Super: Beerus OST - EP 3",
     "series": "DRAGON BALL",
     "style": "Orchestral",
