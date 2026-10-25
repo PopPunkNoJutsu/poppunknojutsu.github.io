@@ -3,9 +3,9 @@ const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "20
 const COVERS = [
   {
     "youtubeId": "wiuTRj61LaQ",
-    "rawTitle": "「Vegeta Enraged」Epic Orchestral ver- Dragon Ball Super: Beerus OST - Episode 3 | PopPunk no Jutsu",
-    "title": "Vegeta Enraged",
-    "anime": "Dragon Ball Super: Beerus OST - Episode 3",
+    "rawTitle": "「Vegeta's That's my Bulma!」Orchestral ver - Dragon Ball Super: Beerus OST - EP 3 | PopPunk no Jutsu",
+    "title": "Vegeta's That's my Bulma!",
+    "anime": "Dragon Ball Super: Beerus OST - EP 3",
     "series": "DRAGON BALL",
     "style": "Orchestral",
     "publishedAt": "2026-10-25T15:56:08+00:00"
@@ -66,18 +66,18 @@ const COVERS = [
   },
   {
     "youtubeId": "5K4lHvCIYFk",
-    "rawTitle": "「The Power to Resist」Epic Orchestral ver - Dragon Ball Super: Beerus EP 2 OST | PopPunk no Jutsu",
+    "rawTitle": "「The Power to Resist」Epic Orchestral ver - Dragon Ball Super: Beerus OST - EP 2 | PopPunk no Jutsu",
     "title": "The Power to Resist",
-    "anime": "Dragon Ball Super: Beerus EP 2 OST",
+    "anime": "Dragon Ball Super: Beerus OST - EP 2",
     "series": "DRAGON BALL",
     "style": "Orchestral",
     "publishedAt": "2026-10-18T18:00:12+00:00"
   },
   {
     "youtubeId": "mjrujO4Af8Q",
-    "rawTitle": "「Goku’s Image Training Theme」Epic Orchestral ver - Dragon Ball Super: Beerus EP 1 | PopPunk no Jutsu",
-    "title": "Goku’s Image Training Theme",
-    "anime": "Dragon Ball Super: Beerus EP 1",
+    "rawTitle": "「Goku’s Image Training 」Epic Orchestral ver - Dragon Ball Super: Beerus OST EP 1 | PopPunk no Jutsu",
+    "title": "Goku’s Image Training",
+    "anime": "Dragon Ball Super: Beerus OST EP 1",
     "series": "DRAGON BALL",
     "style": "Orchestral",
     "publishedAt": "2026-10-18T10:15:20+00:00"
