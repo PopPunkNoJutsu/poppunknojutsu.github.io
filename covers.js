@@ -422,15 +422,6 @@ const COVERS = [
     "style": "English covers"
   },
   {
-    "youtubeId": "mjrujO4Af8Q",
-    "rawTitle": "「Goku’s Image Training 」Epic Orchestral ver - Dragon Ball Super: Beerus OST EP 1 | PopPunk no Jutsu",
-    "title": "Goku’s Image Training",
-    "anime": "Dragon Ball Super: Beerus OST EP 1",
-    "series": "DRAGON BALL",
-    "style": "Orchestral",
-    "publishedAt": "2026-10-18T10:15:20+00:00"
-  },
-  {
     "youtubeId": "3JAgnr1QdyE",
     "rawTitle": "「PAPERMOON」English ver - Soul Eater OP 2 | PopPunk no Jutsu",
     "title": "PAPERMOON",
