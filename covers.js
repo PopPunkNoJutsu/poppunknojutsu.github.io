@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-26"};
 const COVERS = [
   {
+    "youtubeId": "uRv36jnKe6w",
+    "rawTitle": "「Thank you!!」English Ver - BLEACH Ending 2 | PopPunk no Jutsu",
+    "title": "Thank you!!",
+    "anime": "BLEACH Ending 2",
+    "series": "BLEACH",
+    "style": "English covers",
+    "publishedAt": "2026-10-26T22:00:12+00:00"
+  },
+  {
     "youtubeId": "AwKwVfScLTo",
     "rawTitle": "「Life is Like a Boat」English Ver - Bleach ED 1 | PopPunk no Jutsu",
     "title": "Life is Like a Boat",
