@@ -85,15 +85,6 @@
       "publishedAt": "2026-10-18T18:00:12+00:00"
     },
     {
-      "youtubeId": "mjrujO4Af8Q",
-      "rawTitle": "「Goku’s Image Training 」Epic Orchestral ver - Dragon Ball Super: Beerus OST EP 1 | PopPunk no Jutsu",
-      "title": "Goku’s Image Training",
-      "anime": "Dragon Ball Super: Beerus OST EP 1",
-      "series": "DRAGON BALL",
-      "style": "Orchestral",
-      "publishedAt": "2026-10-18T10:15:20+00:00"
-    },
-    {
       "youtubeId": "rbw2XAa5h-w",
       "rawTitle": "「Hero ~Song of Hope」Epic Orchestral ver - Dragon Ball Z: Battle of Gods | PopPunk no Jutsu",
       "title": "Hero ~Song of Hope",
@@ -431,6 +422,15 @@
       "anime": "BLEACH OP 11",
       "series": "BLEACH",
       "style": "English covers"
+    },
+    {
+      "youtubeId": "mjrujO4Af8Q",
+      "rawTitle": "「Goku’s Image Training 」Epic Orchestral ver - Dragon Ball Super: Beerus OST EP 1 | PopPunk no Jutsu",
+      "title": "Goku’s Image Training",
+      "anime": "Dragon Ball Super: Beerus OST EP 1",
+      "series": "DRAGON BALL",
+      "style": "Orchestral",
+      "publishedAt": "2026-10-18T10:15:20+00:00"
     },
     {
       "youtubeId": "3JAgnr1QdyE",
