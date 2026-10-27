@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-27"};
 const COVERS = [
   {
+    "youtubeId": "Cgedd647Hhk",
+    "rawTitle": "「No Boy, No Cry」English Ver - Naruto OP 6 | PopPunk no Jutsu",
+    "title": "No Boy, No Cry",
+    "anime": "Naruto OP 6",
+    "series": "NARUTO",
+    "style": "English covers",
+    "publishedAt": "2026-10-27T22:00:34+00:00"
+  },
+  {
     "youtubeId": "uRv36jnKe6w",
     "rawTitle": "「Thank you!!」English Ver - BLEACH Ending 2 | PopPunk no Jutsu",
     "title": "Thank you!!",
