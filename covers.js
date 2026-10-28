@@ -7,7 +7,8 @@ const COVERS = [
     "title": "NAKAMA",
     "anime": "Dragon Ball DAIMA ED",
     "series": "DRAGON BALL",
-    "style": "English covers"
+    "style": "English covers",
+    "publishedAt": "2026-10-28T22:00:17+00:00"
   },
   {
     "youtubeId": "Cgedd647Hhk",
