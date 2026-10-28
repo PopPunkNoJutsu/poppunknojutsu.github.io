@@ -2,6 +2,14 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-28"};
 const COVERS = [
   {
+    "youtubeId": "PqcLnNrqP8A",
+    "rawTitle": "「NAKAMA」English Ver - Dragon Ball DAIMA ED | PopPunk no Jutsu",
+    "title": "NAKAMA",
+    "anime": "Dragon Ball DAIMA ED",
+    "series": "DRAGON BALL",
+    "style": "English covers"
+  },
+  {
     "youtubeId": "Cgedd647Hhk",
     "rawTitle": "「No Boy, No Cry」English Ver - Naruto OP 6 | PopPunk no Jutsu",
     "title": "No Boy, No Cry",
