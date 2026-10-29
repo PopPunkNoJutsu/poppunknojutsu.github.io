@@ -38,9 +38,9 @@ jobs:
         run: |
           python3 -m venv .playlist-runtime
           .playlist-runtime/bin/python -m pip install --disable-pip-version-check yt-dlp==2026.8.19
-      - name: Check the Videos tab if the upload feed is unavailable
+      - name: Check the Videos tab for uploads missing from the feed
         id: upload_fallback
-        if: steps.youtube.outcome == 'failure' && steps.channel_tools.outcome == 'success'
+        if: steps.channel_tools.outcome == 'success'
         continue-on-error: true
         timeout-minutes: 2
         run: .playlist-runtime/bin/python sync_youtube.py --channel-page
@@ -79,7 +79,7 @@ jobs:
       - name: Record sync result
         run: |
           echo "YouTube feed check: ${{ steps.youtube.outcome }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "YouTube channel upload backup: ${{ steps.upload_fallback.outcome }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "YouTube channel Videos check: ${{ steps.upload_fallback.outcome }}" >> "$GITHUB_STEP_SUMMARY"
           echo "YouTube upload check: ${{ (steps.youtube.outcome == 'success' || steps.upload_fallback.outcome == 'success') && 'success' || 'failure' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "YouTube playlist check: ${{ steps.playlists.outcome }}" >> "$GITHUB_STEP_SUMMARY"
           python3 -c "import json; print('Catalog: ' + str(len(json.load(open('catalog.json'))['videos'])) + ' uploads')" >> "$GITHUB_STEP_SUMMARY"
