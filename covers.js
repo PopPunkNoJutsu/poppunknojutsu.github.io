@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-29"};
 const COVERS = [
   {
+    "youtubeId": "vXMdtyArRNU",
+    "rawTitle": "「CRITICAL」English Ver - BLEACH Mirrors High Opening | PopPunk no Jutsu",
+    "title": "CRITICAL",
+    "anime": "BLEACH Mirrors High Opening",
+    "series": "BLEACH",
+    "style": "English covers",
+    "publishedAt": "2026-10-29T22:00:23+00:00"
+  },
+  {
     "youtubeId": "PqcLnNrqP8A",
     "rawTitle": "「NAKAMA」English Ver - Dragon Ball DAIMA ED | PopPunk no Jutsu",
     "title": "NAKAMA",
