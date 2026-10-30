@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-10-30"};
 const COVERS = [
   {
+    "youtubeId": "EMloAzHWbWU",
+    "rawTitle": "「ONOGAMI」Acoustic English Ver - Dragon Ball Super: Beerus OP 1 | PopPunk no Jutsu",
+    "title": "ONOGAMI",
+    "anime": "Dragon Ball Super: Beerus OP 1",
+    "series": "DRAGON BALL",
+    "style": "Acoustic",
+    "publishedAt": "2026-10-30T23:00:26+00:00"
+  },
+  {
     "youtubeId": "vXMdtyArRNU",
     "rawTitle": "「CRITICAL」English Ver - BLEACH Mirrors High Opening | PopPunk no Jutsu",
     "title": "CRITICAL",
