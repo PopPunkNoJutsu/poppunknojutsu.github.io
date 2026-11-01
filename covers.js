@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-01"};
 const COVERS = [
   {
+    "youtubeId": "EJYcZzFCAfo",
+    "rawTitle": "「Super Saiyan God Awakens」Epic Orchestral ver - Dragon Ball Super: Beerus EP 4 OST| PopPunk no Jutsu",
+    "title": "Super Saiyan God Awakens",
+    "anime": "Dragon Ball Super: Beerus EP 4 OST",
+    "series": "DRAGON BALL",
+    "style": "Orchestral",
+    "publishedAt": "2026-11-01T20:16:08+00:00"
+  },
+  {
     "youtubeId": "EMloAzHWbWU",
     "rawTitle": "「ONOGAMI」Acoustic English Ver - Dragon Ball Super: Beerus OP 1 | PopPunk no Jutsu",
     "title": "ONOGAMI",
