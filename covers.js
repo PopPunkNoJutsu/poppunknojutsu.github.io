@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-03"};
 const COVERS = [
   {
+    "youtubeId": "pbHqOj2hjNQ",
+    "rawTitle": "「Re:member」English Ver - Naruto OP 8 | PopPunk no Jutsu",
+    "title": "Re:member",
+    "anime": "Naruto OP 8",
+    "series": "NARUTO",
+    "style": "English covers",
+    "publishedAt": "2026-11-03T22:00:35+00:00"
+  },
+  {
     "youtubeId": "EJYcZzFCAfo",
     "rawTitle": "「Super Saiyan God Awakens」Epic Orchestral ver - Dragon Ball Super: Beerus EP 4 OST| PopPunk no Jutsu",
     "title": "Super Saiyan God Awakens",
@@ -66,7 +75,7 @@ const COVERS = [
   },
   {
     "youtubeId": "KNqPWhN4tZw",
-    "rawTitle": "「Beerus Enraged」Epic Orchestral ver - Dragon Ball Super: Beerus OST - EP 3 | by PopPunk no Jutsu",
+    "rawTitle": "「Beerus Enraged」Epic Orchestral ver - Dragon Ball Super: Beerus OST - EP 3 | PopPunk no Jutsu",
     "title": "Beerus Enraged",
     "anime": "Dragon Ball Super: Beerus OST - EP 3",
     "series": "DRAGON BALL",
