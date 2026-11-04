@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-04"};
 const COVERS = [
   {
+    "youtubeId": "8YdBXwFZtSU",
+    "rawTitle": "「DAN DAN Kokoro Hikareteku」English Ver - Dragon Ball GT OP | PopPunk no Jutsu",
+    "title": "DAN DAN Kokoro Hikareteku",
+    "anime": "Dragon Ball GT OP",
+    "series": "DRAGON BALL",
+    "style": "English covers",
+    "publishedAt": "2026-11-04T22:00:39+00:00"
+  },
+  {
     "youtubeId": "pbHqOj2hjNQ",
     "rawTitle": "「Re:member」English Ver - Naruto OP 8 | PopPunk no Jutsu",
     "title": "Re:member",
