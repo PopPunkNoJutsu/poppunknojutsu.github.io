@@ -2,6 +2,14 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-05"};
 const COVERS = [
   {
+    "youtubeId": "jfNuJ9i73vg",
+    "rawTitle": "「Haruka Mirai」English Ver - Black Clover OP 1 | PopPunk no Jutsu",
+    "title": "Haruka Mirai",
+    "anime": "Black Clover OP 1",
+    "series": "BLACK CLOVER",
+    "style": "English covers"
+  },
+  {
     "youtubeId": "8YdBXwFZtSU",
     "rawTitle": "「DAN DAN Kokoro Hikareteku」English Ver - Dragon Ball GT OP | PopPunk no Jutsu",
     "title": "DAN DAN Kokoro Hikareteku",
