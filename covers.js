@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-06"};
 const COVERS = [
   {
+    "youtubeId": "0uoo4viNCCI",
+    "rawTitle": "「PAiNT it BLACK」English Ver - Black Clover OP 2 | PopPunk no Jutsu",
+    "title": "PAiNT it BLACK",
+    "anime": "Black Clover OP 2",
+    "series": "BLACK CLOVER",
+    "style": "English covers",
+    "publishedAt": "2026-11-06T22:00:23+00:00"
+  },
+  {
     "youtubeId": "jfNuJ9i73vg",
     "rawTitle": "「Haruka Mirai」English Ver - Black Clover OP 1 | PopPunk no Jutsu",
     "title": "Haruka Mirai",
