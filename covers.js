@@ -7,7 +7,8 @@ const COVERS = [
     "title": "Haruka Mirai",
     "anime": "Black Clover OP 1",
     "series": "BLACK CLOVER",
-    "style": "English covers"
+    "style": "English covers",
+    "publishedAt": "2026-11-05T22:00:06+00:00"
   },
   {
     "youtubeId": "8YdBXwFZtSU",
