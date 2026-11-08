@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-08"};
 const COVERS = [
   {
+    "youtubeId": "4GNitVXinBc",
+    "rawTitle": "「ONOGAMI」Female English Ver - Dragon Ball Super: Beerus OP | PopPunk no Jutsu",
+    "title": "ONOGAMI",
+    "anime": "Dragon Ball Super: Beerus OP",
+    "series": "DRAGON BALL",
+    "style": "English covers",
+    "publishedAt": "2026-11-08T16:00:29+00:00"
+  },
+  {
     "youtubeId": "0uoo4viNCCI",
     "rawTitle": "「PAiNT it BLACK」English Ver - Black Clover OP 2 | PopPunk no Jutsu",
     "title": "PAiNT it BLACK",
