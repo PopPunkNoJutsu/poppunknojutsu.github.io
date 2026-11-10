@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-10"};
 const COVERS = [
   {
+    "youtubeId": "52XFLsG6VeE",
+    "rawTitle": "「R★O★C★K★S | ROCKS」English Ver - Naruto OP 1 | PopPunk no Jutsu",
+    "title": "R★O★C★K★S | ROCKS",
+    "anime": "Naruto OP 1",
+    "series": "NARUTO",
+    "style": "English covers",
+    "publishedAt": "2026-11-10T22:00:32+00:00"
+  },
+  {
     "youtubeId": "4GNitVXinBc",
     "rawTitle": "「ONOGAMI」Female English Ver - Dragon Ball Super: Beerus OP | PopPunk no Jutsu",
     "title": "ONOGAMI",
