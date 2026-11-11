@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-11"};
 const COVERS = [
   {
+    "youtubeId": "XDk-7xzaqdA",
+    "rawTitle": "「Sabitsuita Machine Gun de Ima wo Uchinukou」English Ver - Dragon Ball GT ED 4 | PopPunk no Jutsu",
+    "title": "Sabitsuita Machine Gun de Ima wo Uchinukou",
+    "anime": "Dragon Ball GT ED 4",
+    "series": "DRAGON BALL",
+    "style": "English covers",
+    "publishedAt": "2026-11-11T22:00:13+00:00"
+  },
+  {
     "youtubeId": "52XFLsG6VeE",
     "rawTitle": "「R★O★C★K★S | ROCKS」English Ver - Naruto OP 1 | PopPunk no Jutsu",
     "title": "R★O★C★K★S | ROCKS",
