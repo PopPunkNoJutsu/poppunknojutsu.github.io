@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-12"};
 const COVERS = [
   {
+    "youtubeId": "3mx3l7_ONLs",
+    "rawTitle": "「Black Rover」English Ver - Black Clover OP 3 | PopPunk no Jutsu",
+    "title": "Black Rover",
+    "anime": "Black Clover OP 3",
+    "series": "BLACK CLOVER",
+    "style": "English covers",
+    "publishedAt": "2026-11-12T22:00:05+00:00"
+  },
+  {
     "youtubeId": "XDk-7xzaqdA",
     "rawTitle": "「Sabitsuita Machine Gun de Ima wo Uchinukou」English Ver - Dragon Ball GT ED 4 | PopPunk no Jutsu",
     "title": "Sabitsuita Machine Gun de Ima wo Uchinukou",
