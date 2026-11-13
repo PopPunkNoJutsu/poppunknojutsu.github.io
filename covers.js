@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-13"};
 const COVERS = [
   {
+    "youtubeId": "wjQiIlEc72c",
+    "rawTitle": "「Dreams of an Absolution」Anime Opening - Sonic the Hedgehog (2006) | PopPunk no Jutsu",
+    "title": "Dreams of an Absolution",
+    "anime": "Sonic the Hedgehog (2006)",
+    "series": "OTHER",
+    "style": "English covers",
+    "publishedAt": "2026-11-13T22:00:34+00:00"
+  },
+  {
     "youtubeId": "3mx3l7_ONLs",
     "rawTitle": "「Black Rover」English Ver - Black Clover OP 3 | PopPunk no Jutsu",
     "title": "Black Rover",
@@ -730,7 +739,7 @@ const COVERS = [
     "title": "Treachery",
     "anime": "BLEACH OST",
     "series": "BLEACH",
-    "style": "Pop rock"
+    "style": "English covers"
   },
   {
     "youtubeId": "uE71Fem0Kn8",
