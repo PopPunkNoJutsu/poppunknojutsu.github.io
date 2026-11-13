@@ -3,9 +3,9 @@ const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "20
 const COVERS = [
   {
     "youtubeId": "wjQiIlEc72c",
-    "rawTitle": "「Dreams of an Absolution」Anime Opening - Sonic the Hedgehog (2006) | PopPunk no Jutsu",
+    "rawTitle": "「Dreams of an Absolution」Anime Opening - Silver's Theme - Sonic the Hedgehog 2006 | PopPunk no Jutsu",
     "title": "Dreams of an Absolution",
-    "anime": "Sonic the Hedgehog (2006)",
+    "anime": "Silver's Theme - Sonic the Hedgehog 2006",
     "series": "SONIC THE HEDGEHOG",
     "style": "English covers",
     "publishedAt": "2026-11-13T22:00:34+00:00"
