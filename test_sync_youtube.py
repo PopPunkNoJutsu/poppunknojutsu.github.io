@@ -21,6 +21,33 @@ def entry(video_id, title="「New &amp; Loud」Acoustic English Ver - Naruto OP 
 
 
 class SyncTests(unittest.TestCase):
+    def test_sonic_games_and_versions_share_one_category(self):
+        for title, style in (
+            ("Dreams of an Absolution - Sonic the Hedgehog (2006) | Anime Opening", "English covers"),
+            ("Live and Learn - Sonic Adventure 2 | Pop Punk Cover", "English covers"),
+            ("SONIC FRONTIERS - Acoustic Cover", "Acoustic"),
+            ("Sonic X - Epic Orchestral Ver", "Orchestral"),
+            ("I Am All of Me - Shadow the Hedgehog | Pop Punk Cover", "English covers"),
+        ):
+            with self.subTest(title=title):
+                video = describe_video(title, "Abc123_-xyz")
+                self.assertEqual(video["series"], "SONIC THE HEDGEHOG")
+                self.assertEqual(video["style"], style)
+        self.assertEqual(describe_video("Supersonic - New Anime", "Abc123_-xyz")["series"], "OTHER")
+
+    def test_retained_sonic_upload_moves_out_of_other(self):
+        old = describe_video("Dreams of an Absolution - Sonic the Hedgehog (2006)", "wjQiIlEc72c")
+        old.update(series="OTHER", title="Dreams of an Absolution", anime="Sonic the Hedgehog (2006)",
+                   publishedAt="2026-11-13T22:00:34+00:00")
+        unrelated = describe_video("New game cover", "Abc123_-xyz")
+        catalog = {"channelId": CHANNEL_ID, "lastCheckedDate": "2026-11-14", "videos": [old, unrelated]}
+        with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent) as folder:
+            save_catalog(catalog, Path(folder))
+            saved = json.loads((Path(folder) / "catalog.json").read_text(encoding="utf-8"))
+            self.assertEqual(saved["videos"], [dict(old, series="SONIC THE HEDGEHOG"), unrelated])
+            self.assertEqual(catalog["videos"][0]["series"], "OTHER")
+            self.assertIn('"series": "SONIC THE HEDGEHOG"', (Path(folder) / "covers.js").read_text(encoding="utf-8"))
+
     def test_regular_cover_titles_default_to_english(self):
         for title in (
             "Blue Bird | Anime Opening",

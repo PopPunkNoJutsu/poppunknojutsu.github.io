@@ -25,6 +25,7 @@ SERIES = [
     ("ONE PIECE", r"\bone piece\b"),
     ("JUJUTSU KAISEN", r"\bjujutsu kaisen\b"),
     ("SOUL EATER", r"\bsoul eater\b"),
+    ("SONIC THE HEDGEHOG", r"\bsonic\b|\bshadow\s+the\s+hedgehog\b"),
 ]
 
 
@@ -123,7 +124,10 @@ def save_catalog(catalog, directory):
         # Apply category changes to retained history outside YouTube's recent
         # upload window without rewriting curated labels, dates, or ordering.
         if video.get("rawTitle"):
-            video["style"] = describe_video(video["rawTitle"], video["youtubeId"])["style"]
+            description = describe_video(video["rawTitle"], video["youtubeId"])
+            video["style"] = description["style"]
+            if video.get("series", "OTHER") == "OTHER" and description["series"] != "OTHER":
+                video["series"] = description["series"]
     metadata = {key: catalog[key] for key in ("channelId", "lastCheckedDate")}
     outputs = {
         "catalog.json": json.dumps(catalog, ensure_ascii=False, indent=2) + "\n",
