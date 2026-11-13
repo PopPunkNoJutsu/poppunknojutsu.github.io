@@ -21,6 +21,54 @@ def entry(video_id, title="「New &amp; Loud」Acoustic English Ver - Naruto OP 
 
 
 class SyncTests(unittest.TestCase):
+    def test_regular_cover_titles_default_to_english(self):
+        for title in (
+            "Blue Bird | Anime Opening",
+            "Naruto OP 1 - Pop Punk Cover",
+            "Bleach Ending - POP-PUNK COVER",
+            "Digimon - PopPunk Cover",
+            "Treachery - Pop Rock ver - BLEACH OST",
+            "Anime ending cover",
+            "New song",
+        ):
+            with self.subTest(title=title):
+                self.assertEqual(describe_video(title, "Abc123_-xyz")["style"], "English covers")
+
+    def test_specific_versions_keep_their_categories(self):
+        for title, style in (
+            ("Anime Opening - Acoustic English Cover", "Acoustic"),
+            ("Pop Punk Cover - Epic Orchestral Ver", "Orchestral"),
+            ("Anime Opening - Orchestra Cover", "Orchestral"),
+            ("Anime Opening - Japanese Pop Punk Cover", "Japanese covers"),
+        ):
+            with self.subTest(title=title):
+                self.assertEqual(describe_video(title, "Abc123_-xyz")["style"], style)
+
+    def test_saved_history_is_recategorized_without_changing_other_metadata(self):
+        old = describe_video("Old anime opening - Pop Punk Cover", "Abc123_-xyz")
+        old.update(style="Covers", title="Curated song name", anime="Custom anime label",
+                   publishedAt="2026-09-01T12:00:00+00:00")
+        rock = describe_video("Treachery - Pop Rock ver", "New123_-xyz")
+        rock["style"] = "Pop rock"
+        catalog = {"channelId": CHANNEL_ID, "lastCheckedDate": "2026-11-14", "videos": [old, rock]}
+        with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent) as folder:
+            directory = Path(folder)
+            page = directory / "index.html"
+            page.write_text('<script src="covers.js?v=old" defer></script>', encoding="utf-8")
+            save_catalog(catalog, directory)
+            saved = json.loads((directory / "catalog.json").read_text(encoding="utf-8"))
+            self.assertEqual(saved["videos"], [dict(old, style="English covers"), dict(rock, style="English covers")])
+            self.assertEqual(catalog["videos"][0]["style"], "Covers")
+            self.assertEqual(catalog["videos"][1]["style"], "Pop rock")
+            generated = (directory / "covers.js").read_text(encoding="utf-8")
+            self.assertIn('"style": "English covers"', generated)
+            self.assertNotIn('"style": "Covers"', generated)
+            self.assertNotIn('"style": "Pop rock"', generated)
+            first = page.read_text(encoding="utf-8")
+            self.assertNotIn("covers.js?v=old", first)
+            save_catalog(saved, directory)
+            self.assertEqual(page.read_text(encoding="utf-8"), first)
+
     def test_channel_backup_preserves_history_dates_and_newest_first_order(self):
         old = [describe_video(f"Old {i}", f"old{i:08}") for i in range(81)]
         old[0]["publishedAt"] = "2026-10-20T12:00:00+00:00"

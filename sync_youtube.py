@@ -51,10 +51,10 @@ def describe_video(raw_title, video_id):
         style = "English covers"
     elif re.search(r"\bjapanese\b", raw_title, re.I):
         style = "Japanese covers"
-    elif re.search(r"\bpop rock\b", raw_title, re.I):
-        style = "Pop rock"
     else:
-        style = "Covers"
+        # The channel's regular covers are English even when the title only
+        # says anime opening, pop punk cover, pop rock, or a similar label.
+        style = "English covers"
     return {
         "youtubeId": video_id, "rawTitle": raw_title, "title": title,
         "anime": anime or (series.title() if series != "OTHER" else "PopPunk no Jutsu"),
@@ -113,12 +113,17 @@ def merge_feed(catalog, incoming):
 
 
 def save_catalog(catalog, directory):
+    catalog = copy.deepcopy(catalog)
     videos = catalog["videos"]
     if not videos or len({v["youtubeId"] for v in videos}) != len(videos):
         raise ValueError("Refusing to save an empty or duplicate catalog.")
     for video in videos:
         if not VIDEO_ID.fullmatch(video["youtubeId"]):
             raise ValueError("Invalid video ID in catalog.")
+        # Apply category changes to retained history outside YouTube's recent
+        # upload window without rewriting curated labels, dates, or ordering.
+        if video.get("rawTitle"):
+            video["style"] = describe_video(video["rawTitle"], video["youtubeId"])["style"]
     metadata = {key: catalog[key] for key in ("channelId", "lastCheckedDate")}
     outputs = {
         "catalog.json": json.dumps(catalog, ensure_ascii=False, indent=2) + "\n",
