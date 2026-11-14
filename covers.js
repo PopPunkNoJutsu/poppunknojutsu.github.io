@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-14"};
 const COVERS = [
   {
+    "youtubeId": "JmgpgIDXC5U",
+    "rawTitle": "「NAKAMA」English Ver - Dragon Ball DAIMA ED | PopPunk no Jutsu",
+    "title": "NAKAMA",
+    "anime": "Dragon Ball DAIMA ED",
+    "series": "DRAGON BALL",
+    "style": "English covers",
+    "publishedAt": "2026-11-14T23:00:35+00:00"
+  },
+  {
     "youtubeId": "wjQiIlEc72c",
     "rawTitle": "「Dreams of an Absolution」Anime Opening - Silver's Theme - Sonic the Hedgehog 2006 | PopPunk no Jutsu",
     "title": "Dreams of an Absolution",
