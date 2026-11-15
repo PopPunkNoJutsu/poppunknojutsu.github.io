@@ -119,15 +119,6 @@ const COVERS = [
     "publishedAt": "2026-10-29T22:00:23+00:00"
   },
   {
-    "youtubeId": "PqcLnNrqP8A",
-    "rawTitle": "「NAKAMA」English Ver - Dragon Ball DAIMA ED | PopPunk no Jutsu",
-    "title": "NAKAMA",
-    "anime": "Dragon Ball DAIMA ED",
-    "series": "DRAGON BALL",
-    "style": "English covers",
-    "publishedAt": "2026-10-28T22:00:17+00:00"
-  },
-  {
     "youtubeId": "Cgedd647Hhk",
     "rawTitle": "「No Boy, No Cry」English Ver - Naruto OP 6 | PopPunk no Jutsu",
     "title": "No Boy, No Cry",
@@ -445,6 +436,15 @@ const COVERS = [
     "anime": "Epic Orchestral ver - BLEACH TYBW PART 4 | EPISODE 48",
     "series": "BLEACH",
     "style": "Orchestral"
+  },
+  {
+    "youtubeId": "PqcLnNrqP8A",
+    "rawTitle": "「NAKAMA」English Ver - Dragon Ball DAIMA ED | PopPunk no Jutsu",
+    "title": "NAKAMA",
+    "anime": "Dragon Ball DAIMA ED",
+    "series": "DRAGON BALL",
+    "style": "English covers",
+    "publishedAt": "2026-10-28T22:00:17+00:00"
   },
   {
     "youtubeId": "LnBxH_aBpKg",
