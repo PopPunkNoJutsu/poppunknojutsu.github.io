@@ -3,9 +3,9 @@ const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "20
 const COVERS = [
   {
     "youtubeId": "UtPXVRP6mWU",
-    "rawTitle": "「Hero ~Song of Hope~ | Hero ~Kibou no Uta~」Acoustic English Ver - Dragon Ball Super : Beerus - BOG",
+    "rawTitle": "「Hero ~Song of Hope~ | Hero ~Kibou no Uta~」Acoustic English Ver - Dragon Ball Super : BATTLE OF GODS",
     "title": "Hero ~Song of Hope~ | Hero ~Kibou no Uta~",
-    "anime": "Dragon Ball Super : Beerus - BOG",
+    "anime": "Dragon Ball Super : BATTLE OF GODS",
     "series": "DRAGON BALL",
     "style": "Acoustic",
     "publishedAt": "2026-11-15T16:00:30+00:00"
