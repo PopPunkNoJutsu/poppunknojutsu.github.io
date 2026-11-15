@@ -438,15 +438,6 @@ const COVERS = [
     "style": "Orchestral"
   },
   {
-    "youtubeId": "PqcLnNrqP8A",
-    "rawTitle": "「NAKAMA」English Ver - Dragon Ball DAIMA ED | PopPunk no Jutsu",
-    "title": "NAKAMA",
-    "anime": "Dragon Ball DAIMA ED",
-    "series": "DRAGON BALL",
-    "style": "English covers",
-    "publishedAt": "2026-10-28T22:00:17+00:00"
-  },
-  {
     "youtubeId": "LnBxH_aBpKg",
     "rawTitle": "「Asterisk」English ver - BLEACH OP 1 | PopPunk no Jutsu",
     "title": "Asterisk",
