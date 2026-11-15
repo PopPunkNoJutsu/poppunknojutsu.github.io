@@ -3,8 +3,8 @@ const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "20
 const COVERS = [
   {
     "youtubeId": "UtPXVRP6mWU",
-    "rawTitle": "「HERO ~Kibou no Uta~」Acoustic English Ver - Dragon Ball Super : Beerus - BOG | PopPunk no Jutsu",
-    "title": "HERO ~Kibou no Uta~",
+    "rawTitle": "「Hero ~Song of Hope~ | Hero ~Kibou no Uta~」Acoustic English Ver - Dragon Ball Super : Beerus - BOG",
+    "title": "Hero ~Song of Hope~ | Hero ~Kibou no Uta~",
     "anime": "Dragon Ball Super : Beerus - BOG",
     "series": "DRAGON BALL",
     "style": "Acoustic",
