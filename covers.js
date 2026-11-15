@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-15"};
 const COVERS = [
   {
+    "youtubeId": "UtPXVRP6mWU",
+    "rawTitle": "「HERO ~Kibou no Uta~」Acoustic English Ver - Dragon Ball Super : Beerus - BOG | PopPunk no Jutsu",
+    "title": "HERO ~Kibou no Uta~",
+    "anime": "Dragon Ball Super : Beerus - BOG",
+    "series": "DRAGON BALL",
+    "style": "Acoustic",
+    "publishedAt": "2026-11-15T16:00:30+00:00"
+  },
+  {
     "youtubeId": "JmgpgIDXC5U",
     "rawTitle": "「NAKAMA」English Ver - Dragon Ball DAIMA ED | PopPunk no Jutsu",
     "title": "NAKAMA",
