@@ -7,7 +7,8 @@ const COVERS = [
     "title": "Rise! Tsuyosa! \"Rise, Power!\"",
     "anime": "Naruto OP 1",
     "series": "NARUTO",
-    "style": "English covers"
+    "style": "English covers",
+    "publishedAt": "2026-11-17T22:00:32+00:00"
   },
   {
     "youtubeId": "UtPXVRP6mWU",
