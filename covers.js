@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-19"};
 const COVERS = [
   {
+    "youtubeId": "It4z5Z5VdIo",
+    "rawTitle": "「Guess Who Is Back」English Ver - Black Clover OP 4 | PopPunk no Jutsu",
+    "title": "Guess Who Is Back",
+    "anime": "Black Clover OP 4",
+    "series": "BLACK CLOVER",
+    "style": "English covers",
+    "publishedAt": "2026-11-19T22:00:27+00:00"
+  },
+  {
     "youtubeId": "d2fDZyKPnwY",
     "rawTitle": "「F」English Ver - Dragon Ball Z: Resurrection ‘F’ \"Fukkatsu no F\" | PopPunk no Jutsu",
     "title": "F",
