@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-20"};
 const COVERS = [
   {
+    "youtubeId": "SeqzhTbpYyQ",
+    "rawTitle": "「His World - Zebrahead 」Anime Opening - Sonic's Theme - Sonic the Hedgehog 2006 | PopPunk no Jutsu",
+    "title": "His World - Zebrahead",
+    "anime": "Sonic's Theme - Sonic the Hedgehog 2006",
+    "series": "SONIC THE HEDGEHOG",
+    "style": "English covers",
+    "publishedAt": "2026-11-20T22:00:14+00:00"
+  },
+  {
     "youtubeId": "It4z5Z5VdIo",
     "rawTitle": "「Guess Who Is Back」English Ver - Black Clover OP 4 | PopPunk no Jutsu",
     "title": "Guess Who Is Back",
