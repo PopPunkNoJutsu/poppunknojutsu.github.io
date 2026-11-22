@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-22"};
 const COVERS = [
   {
+    "youtubeId": "Xa30oBF9dmo",
+    "rawTitle": "「DAN DAN Kokoro Hikareteku」Acoustic English Ver - Dragon Ball GT OP 1 | PopPunk no Jutsu",
+    "title": "DAN DAN Kokoro Hikareteku",
+    "anime": "Dragon Ball GT OP 1",
+    "series": "DRAGON BALL",
+    "style": "Acoustic",
+    "publishedAt": "2026-11-22T16:00:22+00:00"
+  },
+  {
     "youtubeId": "SeqzhTbpYyQ",
     "rawTitle": "「His World - Zebrahead 」Anime Opening - Sonic's Theme - Sonic the Hedgehog 2006 | PopPunk no Jutsu",
     "title": "His World - Zebrahead",
