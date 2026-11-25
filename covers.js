@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-25"};
 const COVERS = [
   {
+    "youtubeId": "p7QMvV8ebzQ",
+    "rawTitle": "「Gamushara」English Ver - Black Clover OP 5 | PopPunk no Jutsu",
+    "title": "Gamushara",
+    "anime": "Black Clover OP 5",
+    "series": "BLACK CLOVER",
+    "style": "English covers",
+    "publishedAt": "2026-11-25T22:00:10+00:00"
+  },
+  {
     "youtubeId": "HebJD6j6BQA",
     "rawTitle": "「BLUE VELVET」English Ver - Dragon Ball GT ED 3 | PopPunk no Jutsu",
     "title": "BLUE VELVET",
