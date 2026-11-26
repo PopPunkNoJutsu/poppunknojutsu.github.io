@@ -1,5 +1,5 @@
 // Generated from catalog.json. New uploads are synced by GitHub Actions.
-const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-25"};
+const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-26"};
 const COVERS = [
   {
     "youtubeId": "p7QMvV8ebzQ",
