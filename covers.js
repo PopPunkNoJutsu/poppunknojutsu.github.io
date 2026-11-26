@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-26"};
 const COVERS = [
   {
+    "youtubeId": "brm104EebwE",
+    "rawTitle": "「Rakugaki Page」English Ver - Black Clover OP 6 | PopPunk no Jutsu",
+    "title": "Rakugaki Page",
+    "anime": "Black Clover OP 6",
+    "series": "BLACK CLOVER",
+    "style": "English covers",
+    "publishedAt": "2026-11-26T22:00:23+00:00"
+  },
+  {
     "youtubeId": "p7QMvV8ebzQ",
     "rawTitle": "「Gamushara」English Ver - Black Clover OP 5 | PopPunk no Jutsu",
     "title": "Gamushara",
