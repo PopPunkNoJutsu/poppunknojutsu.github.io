@@ -2,6 +2,15 @@
 const CHANNEL = {"channelId": "UCroKf5_gPSKi63fmIl7OymQ", "lastCheckedDate": "2026-11-27"};
 const COVERS = [
   {
+    "youtubeId": "MuGv1gaJjQ8",
+    "rawTitle": "「Undefeatable」Anime Opening - Sonic Frontiers (2022) | PopPunk no Jutsu",
+    "title": "Undefeatable",
+    "anime": "Sonic Frontiers (2022)",
+    "series": "SONIC THE HEDGEHOG",
+    "style": "English covers",
+    "publishedAt": "2026-11-27T22:00:06+00:00"
+  },
+  {
     "youtubeId": "brm104EebwE",
     "rawTitle": "「Rakugaki Page」English Ver - Black Clover OP 6 | PopPunk no Jutsu",
     "title": "Rakugaki Page",
